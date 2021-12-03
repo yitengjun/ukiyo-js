@@ -3,9 +3,15 @@
     <img width="125" src="./ukiyo.png" alt="">
     <br>
     Ukiyo.js</h1>
-  Simple and lightweight JavaScript library for background parallax,<br>with support for picture/img elements.
+  <p>Simple and lightweight JavaScript library for background parallax,<br>with support for picture/img elements.</p>
+  <p>
+    <img src="https://img.shields.io/bundlephobia/min/ukiyojs">
+    <img src="https://img.shields.io/github/license/yitengjun/ukiyojs">
+  </p>
+  <p>
+    🤟<a style="text-decoration:underline;font-weight:bold" href="https://yitengjun.github.io/ukiyojs/" target="blank">DEMO</a>
+  </p>
 </div>
-
 <br>
 
 ## Installation
