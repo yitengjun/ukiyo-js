@@ -26,11 +26,18 @@ yarn add ukiyojs
 ```
 
 or via CDN:
-``` html
+```html
 <script src="https://cdn.jsdelivr.net/npm/ukiyojs@1.0.0/dist/ukiyo.min.js"></script>
 ```
 
-## Usage  
+Import Ukiyo.js:
+```javascript
+import Ukiyo from "ukiyojs";
+// or
+const Ukiyo = require("ukiyojs");
+```
+
+## Usage
 ### HTML
 Give the element you want to parallax a cool name to call it in JavaScript.
 #### ```<img>``` tag
