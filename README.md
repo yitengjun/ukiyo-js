@@ -11,7 +11,7 @@
   <p>
   🤟
   <br>
-    <a href="https://yitengjun.github.io/ukiyojs/" target="blank">DEMO</a>
+    <a href="https://yitengjun.github.io/ukiyojs/" target="_blank">DEMO</a>
   </p>
 </div>
 <br>
