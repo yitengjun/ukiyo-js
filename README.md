@@ -9,7 +9,7 @@
     <img src="https://img.shields.io/github/license/yitengjun/ukiyojs">
   </p>
   <p>
-    🤟<a style="text-decoration:underline;font-weight:bold" href="https://yitengjun.github.io/ukiyojs/" target="blank">DEMO</a>
+    🤟<a style="font-weight:bold !important" href="https://yitengjun.github.io/ukiyojs/" target="blank">DEMO</a>
   </p>
 </div>
 <br>
@@ -141,4 +141,4 @@ If you use ```img``` tag, you will also need to use the ```object-fit``` polyfil
 > However, please note that even with polyfill, the Parallax animation does not run smoothly in IE.
 
 ## License
-<a href="https://github.com/yitengjun/ukiyojs/blob/main/LICENSE">MIT License</a>
+[MIT License](https://github.com/yitengjun/ukiyojs/blob/main/LICENSE)
