@@ -1,0 +1,62 @@
+{
+  "name": "ukiyojs",
+  "version": "1.0.0",
+  "description": "Simple and lightweight JavaScript library for background parallax with support for picture/img elements.",
+  "homepage": "https://github.com/yitengjun/ukiyojs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yitengjun/ukiyojs.git"
+  },
+  "main": "./dist/ukiyo.min.js",
+  "keywords": [
+    "javascript",
+    "background-image",
+    "parallax",
+    "scroll"
+  ],
+  "author": "Yiteng Jun <ito.yitengjun@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack --mode development --watch",
+    "build": "webpack",
+    "lint": "eslint  \"./src/**/*.js\" --fix",
+    "format": "prettier --write \"./src/**/*.js\"",
+    "semantic-release": "semantic-release",
+    "commit": "cz"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.7",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.2",
+    "@semantic-release/npm": "^8.0.3",
+    "@semantic-release/release-notes-generator": "^10.0.3",
+    "babel-loader": "^8.2.2",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.4.1",
+    "semantic-release": "^18.0.1",
+    "webpack": "^5.44.0",
+    "webpack-cli": "^4.7.2"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/github",
+      "@semantic-release/git"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
