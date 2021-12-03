@@ -33,8 +33,6 @@ or via CDN:
 Import Ukiyo.js:
 ```javascript
 import Ukiyo from "ukiyojs";
-// or
-const Ukiyo = require("ukiyojs");
 ```
 
 ## Usage
