@@ -136,3 +136,4 @@ If you use ```img``` tag, you will also need to use the ```object-fit``` polyfil
 
 ## License
 MIT License
+ 
