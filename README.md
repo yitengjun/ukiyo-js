@@ -1,6 +1,6 @@
 <div align="center">
   <h1>
-    <img width="150" src="./ukiyo.png" alt="">
+    <img width="165" src="./ukiyo.png" alt="">
     <br>
     Ukiyo.js</h1>
   <p>Simple and lightweight JavaScript library for background parallax,<br>with support for picture/img elements.</p>
