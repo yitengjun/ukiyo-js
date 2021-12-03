@@ -9,7 +9,8 @@
     <img src="https://img.shields.io/github/license/yitengjun/ukiyojs">
   </p>
   <p>
-    🤟<a style="font-weight:bold !important" href="https://yitengjun.github.io/ukiyojs/" target="blank">DEMO</a>
+  <br>
+    🤟<a href="https://yitengjun.github.io/ukiyojs/" target="blank">DEMO</a>
   </p>
 </div>
 <br>
