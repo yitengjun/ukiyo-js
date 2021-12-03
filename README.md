@@ -19,7 +19,7 @@ yarn add ukiyojs
 
 or via CDN:
 ``` html
-<script src="ukiyo.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ukiyojs@1.0.0/dist/ukiyo.min.js"></script>
 ```
 
 ## Usage  
