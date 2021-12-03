@@ -135,5 +135,4 @@ If you use ```img``` tag, you will also need to use the ```object-fit``` polyfil
 > However, please note that even with polyfill, the Parallax animation does not run smoothly in IE.
 
 ## License
-MIT License
- 
+<a href="https://github.com/yitengjun/ukiyojs/blob/main/LICENSE">MIT License</a>
