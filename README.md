@@ -9,9 +9,9 @@
     <img src="https://img.shields.io/github/license/yitengjun/ukiyojs">
   </p>
   <p>
-  🤟
-  <br>
-    <a href="https://yitengjun.github.io/ukiyojs/" target="_blank">DEMO</a>
+    <a href="https://yitengjun.github.io/ukiyojs/" target="_blank">
+    🤟<br>
+    DEMO</a>
   </p>
 </div>
 <br>
