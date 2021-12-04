@@ -38,12 +38,12 @@ import Ukiyo from "ukiyojs";
 ## Usage
 ### HTML
 Give the element you want to parallax a cool name to call it in JavaScript.
-#### ```<img>``` tag
+#### → ```<img>``` tag
 ```html
 <img class="ukiyo" src="image.jpg">
 ```
 
-#### ```<picture>``` tag
+#### → ```<picture>``` tag
 ```html
 <picture>
   <source srcset="img.webp" type="image/webp">
@@ -52,7 +52,7 @@ Give the element you want to parallax a cool name to call it in JavaScript.
 ```
 ```picture``` tag element is also supported: set the parallax to the ```img``` tag inside the picture tag.
 
-#### Other Element
+#### → Other Element
 ```html
 <div class="ukiyo"></div>
 ```
@@ -65,7 +65,7 @@ const image = document.querySelector('.ukiyo');
 new Ukiyo(image)
 ```
 You are now ready to go.
-
+***
 > If you want to apply it to more than one element, you need to loop through them as follows:
 ```javascript
 const images = document.querySelectorAll(".ukiyo");
@@ -115,6 +115,7 @@ These options can be set individually for an element using the ```data-u-*``` at
 | ```data-u-speed```=""         | ```scale``` option.                                                              | 
 | ```data-u-willchange```    | ```willChange``` option. Simply attach it to the element to make it valid. | 
 | ```data-u-wrapper-class```="" | ```wrapperClass``` option.                                                        | 
+
 > Option names start with ```data-u-*```. Don't forget to prefix the option name with a "**u**", if u do.
 
 ## Methods
