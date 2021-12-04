@@ -42,12 +42,11 @@ Give the element you want to parallax a cool name to call it in JavaScript.
 ```html
 <img class="ukiyo" src="image.jpg">
 ```
-
 #### → ```<picture>``` element
 ```html
 <picture>
   <source srcset="img.webp" type="image/webp">
-  <img class="ukiyo" src="img.png" alt="">
+  <img class="ukiyo" src="img.png">
 <picture>
 ```
 ```picture``` tag element is also supported: set the parallax to the ```img``` tag inside the picture tag.
