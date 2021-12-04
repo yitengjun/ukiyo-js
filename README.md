@@ -142,7 +142,7 @@ instance.destroy();
 | ---------- | ------ | ------- | ------ | ------ | ------ | ---------- | 
 | ❌No Support | ✅Latest | ✅Latest  | ✅Latest | ✅Latest | ✅Latest | ✅Latest     | 
 
-To support older browsers such as IE, you will need to use the Intersection Observer API, ```Promise``` and ```closest``` polyfills.
+To support older browsers such as IE, you will need to use the Intersection Observer API, ```Promise``` and ```closest()``` polyfills.
 If you use ```img``` tag, you will also need to use the ```object-fit``` polyfill.
 
 > However, please note that even with polyfill, the Parallax animation does not run smoothly in IE.
