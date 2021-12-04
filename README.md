@@ -100,22 +100,22 @@ new BgParallax(parallax, {
 ```
 
 ### Element Options
+These options can be set individually for an element using the ```data-u-*``` attribute:
 ```html
 <img
-data-u-scale="2"
-data-u-speed="1.7"
-data-u-wrapper-class="wrapper-name"
-data-u-willchange
+  data-u-scale="2"
+  data-u-speed="1.7"
+  data-u-wrapper-class="wrapper-name"
+  data-u-willchange
 >
 ```
-You can set options directly on the element.
-When setting these options for an element, prefix them with **```data-u-```**.
-
-- ```data-u-scale```
-- ```data-u-speed```
-- ```data-u-willchange``` Simply attach it to the element to make it valid.
-- ```data-u-wrapper-class```
-> Option names start with ```data-u-```. Don't forget to prefix the option name with a "**u**", if u do.
+| Option               | Description                                                                | 
+| -------------------- | -------------------------------------------------------------------------- | 
+| ```data-u-scale```=""         | ```scale``` option.                                                              | 
+| ```data-u-speed```=""         | ```scale``` option.                                                              | 
+| ```data-u-willchange```    | ```willChange``` option. Simply attach it to the element to make it valid. | 
+| ```data-u-wrapper-class```="" | ```wrapperClass``` option.                                                        | 
+> Option names start with ```data-u-*```. Don't forget to prefix the option name with a "**u**", if u do.
 
 ## Methods
 ### ```reset()```
