@@ -79,7 +79,7 @@ a {
 
 [data-img="full"] {
   width: 100%;
-  max-height: 100vh;
+  height: 125vh;
 }
 
 [data-size="1"] {
@@ -118,7 +118,7 @@ footer {
   }
 
   [data-img="full"] {
-    max-height: 100vh;
+    height: 100vh;
     height: 100vh;
   }
 
