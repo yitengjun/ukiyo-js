@@ -9,7 +9,7 @@
     <img src="https://img.shields.io/github/license/yitengjun/ukiyojs">
   </p>
   <p>
-    <a href="https://yitengjun.github.io/ukiyojs/" target="_blank">
+    <a href="https://yitengjun.github.io/ukiyo-js/" target="_blank">
     🤟<br>
     DEMO</a>
   </p>
