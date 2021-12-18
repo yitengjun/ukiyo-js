@@ -10,7 +10,7 @@
   </p>
   <p>
     <a href="https://yitengjun.github.io/ukiyo-js/" target="_blank">
-    🤟<br>
+    ⛰️<br>
     DEMO</a>
   </p>
 </div>
