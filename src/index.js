@@ -67,7 +67,6 @@ export default class Ukiyo {
     this._setStyles(true);
 
     const elementOptionWrapperClass = this.element.getAttribute('data-u-wrapper-class');
-
     if (this.options.wrapperClass || elementOptionWrapperClass) {
       const customClass = elementOptionWrapperClass ? elementOptionWrapperClass : this.options.wrapperClass;
       this.wrapper.classList.add(customClass);
