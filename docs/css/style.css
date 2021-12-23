@@ -15,6 +15,11 @@ a {
   color: inherit;
 }
 
+#container {
+  position: relative;
+  z-index: 2;
+}
+
 .fv {
   height: 100vh;
   width: 100%;
@@ -65,8 +70,6 @@ a {
 
 .ukiyo {
   margin-top: 12.5em;
-  position: relative;
-  z-index: 2;
 }
 
 .img-size-1 {
