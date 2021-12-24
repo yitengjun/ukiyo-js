@@ -118,7 +118,7 @@ These options can be set individually for an element using the ```data-u-*``` at
 | Option               | Description                                                                | 
 | -------------------- | -------------------------------------------------------------------------- | 
 | ```data-u-scale```=""         | ```scale``` option.                                                              | 
-| ```data-u-speed```=""         | ```scale``` option.                                                              | 
+| ```data-u-speed```=""         | ```speed``` option.                                                              | 
 | ```data-u-willchange```    | ```willChange``` option. Simply attach it to the element to make it valid. | 
 | ```data-u-wrapper-class```="" | ```wrapperClass``` option.                                                        | 
 
