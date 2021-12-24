@@ -3,13 +3,11 @@
  * @param  {string} src - Image source
  * @return {object} Promise Object
  */
-const isImageLoaded = (src) => {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = () => resolve(img);
-    img.onerror = (e) => reject(e);
-    img.src = src;
-  });
+const isImageLoaded = async (src) => {
+  const img = new Image();
+  img.src = src;
+  await img.decode();
+  return img;
 };
 
 export { isImageLoaded };
