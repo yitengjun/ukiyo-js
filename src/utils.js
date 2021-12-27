@@ -3,11 +3,24 @@
  * @param  {string} src - Image source
  * @return {object} Promise Object
  */
-const isImageLoaded = async (src) => {
-  const img = new Image();
-  img.src = src;
-  await img.decode();
-  return img;
+const isImageLoaded = (src) => {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = (e) => reject(e);
+    img.src = src;
+  });
 };
 
-export { isImageLoaded };
+/**
+ * Determine if the browser supports it
+ * @return {boolean}
+ */
+const browserCheck = () => {
+  const promise = typeof Promise !== 'undefined' && Promise.toString().indexOf('[native code]') !== -1;
+  const closest = Element.prototype.closest;
+
+  return promise && closest && 'IntersectionObserver' in window;
+};
+
+export { isImageLoaded, browserCheck };
