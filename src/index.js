@@ -1,4 +1,4 @@
-import { isImageLoaded } from './utils';
+import { isImageLoaded, browserCheck } from './utils';
 
 export default class Ukiyo {
   /**
@@ -7,7 +7,7 @@ export default class Ukiyo {
    * @param {object} options - Options of ukiyo.js
    */
   constructor(element, options = {}) {
-    if (!element) return;
+    if (!element || !browserCheck()) return;
 
     const defaults = {
       scale: 1.5,
@@ -38,8 +38,9 @@ export default class Ukiyo {
 
     if (this.isIMGtag) {
       const path = this.element.getAttribute('src');
-      const load = isImageLoaded(path);
-      this._init();
+      isImageLoaded(path).then((res) => {
+        this._init();
+      });
     } else {
       this._init();
     }
