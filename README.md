@@ -27,7 +27,7 @@ yarn add ukiyojs
 
 or via CDN:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/ukiyojs@1.0.0/dist/ukiyo.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ukiyojs@2.0.0/dist/ukiyo.min.js"></script>
 ```
 
 Import Ukiyo.js:
@@ -149,8 +149,8 @@ instance.destroy();
 | ---------- | ------ | ------- | ------ | ------ | ------ | ---------- | 
 | ❌No Support | ✅Latest | ✅Latest  | ✅Latest | ✅Latest | ✅Latest | ✅Latest     | 
 
-To support older browsers such as IE, you will need to use the Intersection Observer API, ```Promise``` and ```closest()``` polyfills.
-If you use ```img``` tag, you will also need to use the ```object-fit``` polyfill.
+To support older browsers such as IE, you will need to use the Intersection Observer API, ```Promise``` and ```closest()``` polyfills. If you use ```img``` tag, you will also need to use the ```object-fit``` polyfill.
+(Only for v1.0.0. Starting from v2.0.0, it is automatically disabled for use with IE.)
 
 > However, please note that even with polyfill, the Parallax animation does not run smoothly in IE.
 
