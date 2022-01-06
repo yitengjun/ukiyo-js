@@ -10,6 +10,9 @@ module.exports = {
     library: 'Ukiyo',
     libraryExport: "default",
     libraryTarget: 'umd',
+    environment: {
+      arrowFunction: false
+    }
   },
   module: {
     rules: [{
@@ -21,14 +24,8 @@ module.exports = {
           presets: [
             "@babel/preset-env",
           ],
-          plugins: [
-            [
-              "@babel/transform-runtime"
-            ]
-          ]
-        },
-      }, ],
-    }, ],
-  },
-  target: ["web", "es5"],
+        }
+      }]
+    }]
+  }
 };
