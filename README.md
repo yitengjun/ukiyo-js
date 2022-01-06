@@ -97,7 +97,7 @@ These can be configured with the following JS code:
 ```javascript
 const parallax = document.querySelector('.image');
 
-new BgParallax(parallax, {
+new Ukiyo(parallax, {
     scale: 1.5, // 1~2 is recommended
     speed: 1.5, // 1~2 is recommended
     willChange: true, // This may not be valid in all cases
