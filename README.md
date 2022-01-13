@@ -71,7 +71,7 @@ const image = document.querySelector('.ukiyo');
 new Ukiyo(image)
 ```
 You are now ready to go.
-***
+
 > If you want to apply it to more than one element, you need to loop through them as follows:
 ```javascript
 const images = document.querySelectorAll(".ukiyo");
