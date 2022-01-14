@@ -25,6 +25,19 @@ a {
   width: 100%;
 }
 
+/* .fv_img {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 50%;
+}
+
+.fv_img2 {
+  width: 30%;
+  margin: 0 auto;
+} */
+
 .heading {
   position: fixed;
   left: 50%;
@@ -83,7 +96,7 @@ a {
 
 .img-size-full {
   width: 100%;
-  height: 125vh;
+  height: 115vh;
 }
 
 .img-size-1 {
