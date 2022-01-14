@@ -96,6 +96,10 @@ export default class Ukiyo {
     // Difference between the height of the element and the wrapper
     this.overflow = elementHeight - elementHeight * this.options.scale;
 
+    if (elementStyle.position === 'absolute' && elementStyle.marginRight !== '0px' && elementStyle.marginLeft !== '0px' && elementStyle.marginLeft === elementStyle.marginRight) {
+      this.wrapper.style.margin = 'auto';
+    }
+
     if (elementStyle.marginTop !== '0px' || elementStyle.marginBottom !== '0px') {
       this.wrapper.style.marginTop = elementStyle.marginTop;
       this.wrapper.style.marginBottom = elementStyle.marginBottom;

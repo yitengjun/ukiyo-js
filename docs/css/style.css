@@ -25,6 +25,19 @@ a {
   width: 100%;
 }
 
+.fv_img {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 50%;
+}
+
+.fv_img2 {
+  width: 30%;
+  margin: 0 auto;
+}
+
 .heading {
   position: fixed;
   left: 50%;
@@ -68,9 +81,9 @@ a {
   margin-top: 0 !important;
 }
 
-.ukiyo {
+/* .ukiyo {
   margin-top: 12.5em;
-}
+} */
 
 .img-size-1 {
   margin-left: 10%;
