@@ -120,13 +120,13 @@ footer {
   }
 
   .heading a {
-    font-size: 3.75vw;
+    font-size: 2vw;
     padding-left: 1.25em;
     padding-right: 1.25em;
   }
 
   .heading h1 {
-    font-size: 10vw;
+    font-size: 6vw;
   }
 
   .img-position-l {
@@ -150,5 +150,17 @@ footer {
   .img-size-2 {
     width: 75%;
     height: 100vh;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .heading a {
+    font-size: 3vw;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .heading h1 {
+    font-size: 7.5vw;
   }
 }
