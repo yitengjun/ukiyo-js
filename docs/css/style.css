@@ -72,6 +72,12 @@ a {
   transform: scale(1.075);
 }
 
+.bg {
+  background-image: url(https://source.unsplash.com/BteCp6aq4GI);
+  background-size: cover;
+  background-position: center;
+}
+
 .fv_img1 {
   position: absolute;
   top: 0;
