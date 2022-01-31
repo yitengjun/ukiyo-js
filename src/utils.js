@@ -1,4 +1,15 @@
 /**
+ * Determine if the browser supports it
+ * @return {boolean}
+ */
+const browserCheck = () => {
+  const promise = typeof Promise !== 'undefined' && Promise.toString().indexOf('[native code]') !== -1;
+  const closest = Element.prototype.closest;
+
+  return promise && closest && 'IntersectionObserver' in window;
+};
+
+/**
  * Wait for the images to load
  * @param  {string} src - Image source
  * @return {object} Promise Object
@@ -12,15 +23,4 @@ const isImageLoaded = (src) => {
   });
 };
 
-/**
- * Determine if the browser supports it
- * @return {boolean}
- */
-const browserCheck = () => {
-  const promise = typeof Promise !== 'undefined' && Promise.toString().indexOf('[native code]') !== -1;
-  const closest = Element.prototype.closest;
-
-  return promise && closest && 'IntersectionObserver' in window;
-};
-
-export { isImageLoaded, browserCheck };
+export { browserCheck, isImageLoaded };
