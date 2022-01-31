@@ -10,9 +10,11 @@
   "main": "./dist/ukiyo.min.js",
   "keywords": [
     "javascript",
-    "background-image",
     "parallax",
-    "scroll"
+    "scroll",
+    "background-image",
+    "background",
+    "parallax-scrolling"
   ],
   "author": "Yiteng Jun <ito.yitengjun@gmail.com>",
   "license": "MIT",
