@@ -9,20 +9,21 @@ export default class Ukiyo {
   constructor(element, options = {}) {
     if (!element || !browserCheck()) return;
 
+    this.element = element;
+    this.wrapper = document.createElement('div');
+
     const defaults = {
       scale: 1.5,
       speed: 1.5,
       wrapperClass: null,
       willChange: false
     };
+    this.options = { ...defaults, ...options };
+
     const elementOptionScale = element.getAttribute('data-u-scale');
     const elementOptionSpeed = element.getAttribute('data-u-speed');
     const elementOptionWillChange = element.getAttribute('data-u-willchange');
 
-    this.element = element;
-    this.wrapper = document.createElement('div');
-
-    this.options = { ...defaults, ...options };
     if (elementOptionScale !== null) this.options.scale = elementOptionScale;
     if (elementOptionSpeed !== null) this.options.speed = elementOptionSpeed;
     if (elementOptionWillChange !== null) this.options.willChange = true;
@@ -33,7 +34,6 @@ export default class Ukiyo {
     this.requestId = null;
     this.timer = null;
     this.reset = this.reset.bind(this);
-
     this.isInit = false;
 
     if (this.isIMGtag) {
@@ -63,7 +63,6 @@ export default class Ukiyo {
    * Element and option settings
    */
   _setupElements() {
-    // Set CSS style for the element
     this._setStyles(true);
 
     const elementOptionWrapperClass = this.element.getAttribute('data-u-wrapper-class');
@@ -96,7 +95,13 @@ export default class Ukiyo {
     // Difference between the height of the element and the wrapper
     this.overflow = elementHeight - elementHeight * this.options.scale;
 
-    if (elementStyle.position === 'absolute' && elementStyle.marginRight !== '0px' && elementStyle.marginLeft !== '0px' && elementStyle.marginLeft === elementStyle.marginRight) {
+    // When using both margin: auto and position: absolute
+    if (
+      elementStyle.position === 'absolute' &&
+      elementStyle.marginRight !== '0px' &&
+      elementStyle.marginLeft !== '0px' &&
+      elementStyle.marginLeft === elementStyle.marginRight
+    ) {
       this.wrapper.style.margin = 'auto';
     }
 
