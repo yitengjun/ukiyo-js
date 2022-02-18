@@ -285,7 +285,7 @@ export default class Ukiyo {
    * Reset
    */
   reset() {
-    this.wrapper.style.height = '';
+    this.wrapper.style.height = '100%';
     this.wrapper.style.width = '';
     this.wrapper.style.position = '';
     this.element.style.height = '';
