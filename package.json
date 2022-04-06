@@ -1,7 +1,7 @@
 {
   "name": "ukiyojs",
-  "version": "2.0.2",
-  "description": "Simple and lightweight JavaScript library for background parallax with support for picture/img elements.",
+  "version": "3.0.0",
+  "description": "Modern parallax library for picture elements and any images",
   "homepage": "https://yitengjun.github.io/ukiyo-js/",
   "repository": {
     "type": "git",
