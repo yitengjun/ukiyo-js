@@ -27,7 +27,7 @@ yarn add ukiyojs
 
 or via CDN:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/ukiyojs@2.0.2/dist/ukiyo.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ukiyojs@3.0.0/dist/ukiyo.min.js"></script>
 ```
 
 Import Ukiyo.js:
