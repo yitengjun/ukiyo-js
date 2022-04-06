@@ -38,7 +38,7 @@ export default class Ukiyo {
 
     if (this.isIMGtag) {
       const path = this.element.getAttribute('src');
-      isImageLoaded(path).then(() => {
+      isImageLoaded(path).then((res) => {
         this._init();
       });
     } else {
