@@ -13,8 +13,5 @@ export default {
     format: 'umd',
     name: 'Ukiyo'
   },
-  plugins: [
-    buble(bubleOptions),
-    terser()
-  ]
+  plugins: [buble(bubleOptions), terser()]
 };
