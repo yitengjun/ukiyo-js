@@ -11,7 +11,7 @@
   <p>
     <a href="https://yitengjun.github.io/ukiyo-js/" target="_blank">
     ⛰️<br>
-    DEMO</a>
+    <b>DEMO</b></a>
   </p>
 </div>
 <br>
