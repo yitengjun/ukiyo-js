@@ -190,11 +190,9 @@ export default class Ukiyo {
   _observerCallback(entries) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        // Is visible
         this.isVisible = true;
         this._update();
       } else {
-        // Is not visible
         this.isVisible = false;
         this._cancel();
       }
