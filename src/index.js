@@ -63,16 +63,18 @@ export default class Ukiyo {
    * Element and option settings
    */
   _setupElements() {
+    // Set style
     this._setStyles(true);
 
     const elementOptionWrapperClass = this.element.getAttribute('data-u-wrapper-class');
+    const pictureTag = this.element.closest('picture');
+
     if (this.options.wrapperClass || elementOptionWrapperClass) {
       const customClass = elementOptionWrapperClass ? elementOptionWrapperClass : this.options.wrapperClass;
       this.wrapper.classList.add(customClass);
     }
 
     // Wrapping an element by adding a wrapper element
-    const pictureTag = this.element.closest('picture');
     if (pictureTag !== null) {
       pictureTag.parentNode.insertBefore(this.wrapper, pictureTag);
       this.wrapper.appendChild(pictureTag);
