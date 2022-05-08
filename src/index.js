@@ -17,7 +17,7 @@ export default class Ukiyo {
 
     // Resize properties
     this.timer = null;
-    this.reset = this.reset.bind(this);
+    this.resizeEvent = this.resize.bind(this);
 
     this.observer = null;
     this.requestId = null;
@@ -273,9 +273,9 @@ export default class Ukiyo {
   _addEvent() {
     // Resize Event
     if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/)) {
-      window.addEventListener('orientationchange', this.resize.bind(this));
+      window.addEventListener('orientationchange', this.resizeEvent);
     } else {
-      window.addEventListener('resize', this.resize.bind(this));
+      window.addEventListener('resize', this.resizeEvent);
     }
   }
 
@@ -284,7 +284,7 @@ export default class Ukiyo {
    */
   resize() {
     clearTimeout(this.timer);
-    this.timer = setTimeout(this.reset, 450);
+    this.timer = setTimeout(this.reset.bind(this), 450);
   }
 
   /**
@@ -337,6 +337,9 @@ export default class Ukiyo {
     this.element.removeAttribute('style');
 
     this.wrapper.replaceWith(...this.wrapper.childNodes);
+
+    window.removeEventListener('resize', this.resizeEvent);
+    window.removeEventListener('orientationchange', this.resizeEvent);
 
     this.isInit = false;
   }
