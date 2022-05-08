@@ -9,15 +9,28 @@ export default class Ukiyo {
   constructor(element, options = {}) {
     if (!element || !browserCheck()) return;
 
+    // Parallax properties
     this.element = element;
     this.wrapper = document.createElement('div');
+    this.isIMGtag = element.tagName.toLowerCase() === 'img';
+    this.overflow = null;
 
+    // Resize properties
+    this.timer = null;
+    this.reset = this.reset.bind(this);
+
+    this.observer = null;
+    this.requestId = null;
+    this.isInit = false;
+
+    // Options
     const defaults = {
       scale: 1.5,
       speed: 1.5,
       wrapperClass: null,
       willChange: false
     };
+
     this.options = { ...defaults, ...options };
 
     const elementOptionScale = element.getAttribute('data-u-scale');
@@ -28,14 +41,7 @@ export default class Ukiyo {
     if (elementOptionSpeed !== null) this.options.speed = elementOptionSpeed;
     if (elementOptionWillChange !== null) this.options.willChange = true;
 
-    this.isIMGtag = this.element.tagName.toLowerCase() === 'img';
-    this.overflow = null;
-    this.observer = null;
-    this.requestId = null;
-    this.timer = null;
-    this.reset = this.reset.bind(this);
-    this.isInit = false;
-
+    // Init
     if (this.isIMGtag) {
       const path = this.element.getAttribute('src');
       isImageLoaded(path).then(() => {
