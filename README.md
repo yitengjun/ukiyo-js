@@ -86,12 +86,12 @@ images.forEach(image => {
 
 ## Options
 
-| Option       | Type    | Default | Description                                                                            | 
-| ------------ | ------- | ------- | -------------------------------------------------------------------------------------- | 
-| ```scale```        | ```number```  | ```1.5```     | Parallax image scaling factor.                                                          | 
-| ```speed```        | ```number```  | ```1.5```     | Parallax speed.                                                                         | 
-| ```willChange```   | ```boolean``` | ```false```   | If true, the element will be given a ```will-change: transform``` when Parallax is active. | 
-| ```wrapperClass``` | ```string```  | ```null```    | Class name of the automatically generated wrapper element.                              | 
+| Option | Type | Default | Description | 
+| - | - | - | - |
+| ```scale``` | ```number``` | ```1.5``` | Parallax image scaling factor. | 
+| ```speed``` | ```number```  | ```1.5``` | Parallax speed. | 
+| ```willChange``` | ```boolean``` | ```false``` | If true, the element will be given a ```will-change: transform``` when Parallax is active. | 
+| ```wrapperClass``` | ```string```  | ```null``` | Class name of the automatically generated wrapper element. | 
 
 These can be configured with the following JS code:
 ```javascript
@@ -115,12 +115,13 @@ These options can be set individually for an element using the ```data-u-*``` at
   data-u-willchange
 >
 ```
-| Option               | Description                                                                | 
-| -------------------- | -------------------------------------------------------------------------- | 
-| ```data-u-scale```=""         | ```scale``` option.                                                              | 
-| ```data-u-speed```=""         | ```speed``` option.                                                              | 
-| ```data-u-willchange```    | ```willChange``` option. Simply attach it to the element to make it valid. | 
-| ```data-u-wrapper-class```="" | ```wrapperClass``` option.                                                        | 
+| Attribute | Values | Description |
+| - | - | - |
+| ```data-u-scale``` | ```number``` | ```scale``` option. |
+| ```data-u-speed``` | ```number``` | ```speed``` option. |
+| ```data-u-willchange``` |  | ```willChange``` option. Simply attach it to the element to make it valid. |
+| ```data-u-wrapper-class``` | string | ```wrapperClass``` option. |
+|  |  |  |
 
 > Option names start with ```data-u-*```. Don't forget to prefix the option name with a "**u**", if u do.
 
