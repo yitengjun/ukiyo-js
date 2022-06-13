@@ -97,48 +97,49 @@ export default class Ukiyo {
   _setStyles(init) {
     const elementHeight = this.element.clientHeight;
     const elementWidth = this.element.clientWidth;
-    const elementStyle = document.defaultView.getComputedStyle(this.element);
-    const isPositionAbsolute = elementStyle.position === 'absolute';
+    const style = document.defaultView.getComputedStyle(this.element);
+    const isPositionAbsolute = style.position === 'absolute';
 
     // Difference between the height of the element and the wrapper
     this.overflow = elementHeight - elementHeight * this.options.scale;
 
     // When using both margin: auto and position: absolute
-    if (
-      elementStyle.position === 'absolute' &&
-      elementStyle.marginRight !== '0px' &&
-      elementStyle.marginLeft !== '0px' &&
-      elementStyle.marginLeft === elementStyle.marginRight
-    ) {
+    if (style.position === 'absolute' && style.marginRight !== '0px' && style.marginLeft !== '0px' && style.marginLeft === style.marginRight) {
       this.wrapper.style.margin = 'auto';
     }
 
-    if (elementStyle.marginTop !== '0px' || elementStyle.marginBottom !== '0px') {
-      this.wrapper.style.marginTop = elementStyle.marginTop;
-      this.wrapper.style.marginBottom = elementStyle.marginBottom;
+    if (style.marginTop !== '0px' || style.marginBottom !== '0px') {
+      this.wrapper.style.marginTop = style.marginTop;
+      this.wrapper.style.marginBottom = style.marginBottom;
       this.element.style.marginTop = '0';
       this.element.style.marginBottom = '0';
     }
 
-    if (elementStyle.inset !== 'auto') {
-      this.wrapper.style.top = elementStyle.top;
-      this.wrapper.style.right = elementStyle.right;
-      this.wrapper.style.bottom = elementStyle.bottom;
-      this.wrapper.style.left = elementStyle.left;
+    if (style.inset !== 'auto') {
+      this.wrapper.style.top = style.top;
+      this.wrapper.style.right = style.right;
+      this.wrapper.style.bottom = style.bottom;
+      this.wrapper.style.left = style.left;
       this.element.style.top = '0';
       this.element.style.right = '0';
       this.element.style.bottom = '0';
       this.element.style.left = '0';
     }
 
-    if (elementStyle.transform !== 'none') this.wrapper.style.transform = elementStyle.transform;
+    if (style.transform !== 'none') this.wrapper.style.transform = style.transform;
 
-    if (elementStyle.zIndex !== 'auto') this.wrapper.style.zIndex = elementStyle.zIndex;
+    if (style.zIndex !== 'auto') this.wrapper.style.zIndex = style.zIndex;
 
     if (isPositionAbsolute) {
       this.wrapper.style.position = 'absolute';
     } else {
       this.wrapper.style.position = 'relative';
+    }
+
+    const hasGrid = style.gridArea !== 'auto' && style.gridArea !== 'auto / auto / auto / auto';
+    if (hasGrid) {
+      this.wrapper.style.gridArea = style.gridArea;
+      this.element.style.gridArea = 'auto';
     }
 
     // Initial style settings
@@ -149,7 +150,7 @@ export default class Ukiyo {
       this.element.style.overflow = 'hidden';
       this.element.style.backfaceVisibility = 'hidden';
 
-      if (elementStyle.padding !== '0px') {
+      if (style.padding !== '0px') {
         this.element.style.padding = '0';
       }
 
@@ -164,12 +165,12 @@ export default class Ukiyo {
       this.wrapper.style.width = elementWidth + 'px';
       this.element.style.width = '100%';
     }
-    if (elementStyle.maxHeight !== 'none') {
-      this.wrapper.style.maxHeight = elementStyle.maxHeight;
+    if (style.maxHeight !== 'none') {
+      this.wrapper.style.maxHeight = style.maxHeight;
       this.element.style.maxHeight = 'none';
     }
-    if (elementStyle.minHeight !== '0px') {
-      this.wrapper.style.minHeight = elementStyle.minHeight;
+    if (style.minHeight !== '0px') {
+      this.wrapper.style.minHeight = style.minHeight;
       this.element.style.minHeight = 'none';
     }
 
@@ -291,11 +292,21 @@ export default class Ukiyo {
    * Reset
    */
   reset() {
-    this.wrapper.style.height = '100%';
     this.wrapper.style.width = '';
     this.wrapper.style.position = '';
-    this.element.style.height = '';
     this.element.style.width = '';
+
+    if (this.isIMGtag && this.wrapper.style.position === 'absolute') {
+      this.wrapper.style.height = '100%';
+    } else {
+      this.wrapper.style.height = '';
+    }
+
+    if (this.wrapper.style.gridArea === '') {
+      this.element.style.height = '';
+    } else {
+      this.element.style.height = '100%';
+    }
 
     if (this.wrapper.style.margin !== '0px') {
       this.wrapper.style.margin = '';
