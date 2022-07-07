@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ukiyo.js Demo</title>
   <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/locomotive-scroll.css">
   <link rel="stylesheet" href="./css/style.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,7 +57,7 @@
 
     <footer>
       <div>
-        <p>Scroll : <a href="https://github.com/locomotivemtl/locomotive-scroll" target="_blank">locomotive scroll</a></p>
+        <p>Smooth Scroll : <a href="https://github.com/studio-freight/lenis" target="blank">@studio-freight/lenis</a></p>
         <p>Image : <a href="https://unsplash.com/" target="blank">Unsplash</a></p>
       </div>
     </footer>
@@ -66,8 +65,7 @@
 
   <!-- <script src="../dist/ukiyo.min.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/ukiyojs@3.0.2/dist/ukiyo.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-
+  <script src="scroll.js"></script>
   <script>
     /**
      * Ukiyo.js
@@ -79,16 +77,6 @@
         // scale: 1.25
       });
     })
-
-    /**
-     * Scroll (Locomotive Scroll)
-     */
-    const container = document.querySelector('#container');
-    const scroll = new LocomotiveScroll({
-      el: container,
-      smooth: true,
-      scrollFromAnywhere: true
-    });
   </script>
 
 </body>
