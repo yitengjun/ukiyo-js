@@ -38,11 +38,11 @@ import Ukiyo from "ukiyojs";
 ## Usage
 ### HTML
 Give the element you want to parallax a cool name to call it in JavaScript.
-#### ```<img>```
+#### → ```<img>```
 ```html
 <img class="ukiyo" src="image.jpg">
 ```
-#### ```<picture>```
+#### → ```<picture>```
 ```html
 <picture>
   <source srcset="~.webp" type="image/webp">
@@ -57,11 +57,11 @@ Give the element you want to parallax a cool name to call it in JavaScript.
 </picture>
 ```
 ```picture``` tag element is also supported: set the parallax to the ```img``` tag inside the picture tag.
-#### ```<video>```
+#### → ```<video>```
 ```html
 <video class="ukiyo" src="~" type="~">
 ```
-#### Using ```background-image```
+#### → Using ```background-image```
 ```html
 <div class="ukiyo"></div>
 ```
