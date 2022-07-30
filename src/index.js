@@ -97,7 +97,7 @@ export default class Ukiyo {
   _setStyles(init) {
     const elementHeight = this.element.clientHeight;
     const elementWidth = this.element.clientWidth;
-    const style = document.defaultView.getComputedStyle(this.element);
+    const style = window.getComputedStyle(this.element);
     const isPositionAbsolute = style.position === 'absolute';
 
     // Difference between the height of the element and the wrapper
