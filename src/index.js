@@ -97,7 +97,7 @@ export default class Ukiyo {
   _setStyles(init) {
     const elementHeight = this.element.clientHeight;
     const elementWidth = this.element.clientWidth;
-    const style = document.defaultView.getComputedStyle(this.element);
+    const style = window.getComputedStyle(this.element);
     const isPositionAbsolute = style.position === 'absolute';
 
     // Difference between the height of the element and the wrapper
@@ -159,6 +159,23 @@ export default class Ukiyo {
       } else {
         this.element.style.backgroundPosition = 'center';
       }
+    }
+
+    if (style.borderRadius !== '0px') {
+      this.wrapper.style.borderRadius = style.borderRadius;
+      this.element.style.borderRadius = '0px';
+
+      if (style.marginLeft !== '0px') {
+        this.wrapper.style.marginLeft = style.marginLeft;
+        this.element.style.marginLeft = '0';
+      }
+      if (style.marginRight !== '0px') {
+        this.wrapper.style.marginRight = style.marginRight;
+        this.element.style.marginRight = '0';
+      }
+
+      this.wrapper.style.width = elementWidth + 'px';
+      this.element.style.width = elementWidth + 'px';
     }
 
     if (isPositionAbsolute) {
@@ -331,6 +348,11 @@ export default class Ukiyo {
 
     if (this.wrapper.style.zIndex !== 'auto') {
       this.wrapper.style.zIndex = '';
+    }
+
+    if (this.wrapper.style.borderRadius !== '0px') {
+      this.wrapper.style.borderRadius = '';
+      this.element.style.borderRadius = '';
     }
 
     this._setStyles();
