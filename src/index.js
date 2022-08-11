@@ -161,6 +161,23 @@ export default class Ukiyo {
       }
     }
 
+    if (style.borderRadius !== '0px') {
+      this.wrapper.style.borderRadius = style.borderRadius;
+      this.element.style.borderRadius = '0px';
+
+      if (style.marginLeft !== '0px') {
+        this.wrapper.style.marginLeft = style.marginLeft;
+        this.element.style.marginLeft = '0';
+      }
+      if (style.marginRight !== '0px') {
+        this.wrapper.style.marginRight = style.marginRight;
+        this.element.style.marginRight = '0';
+      }
+
+      this.wrapper.style.width = elementWidth + 'px';
+      this.element.style.width = elementWidth + 'px';
+    }
+
     if (isPositionAbsolute) {
       this.wrapper.style.width = elementWidth + 'px';
       this.element.style.width = '100%';
@@ -331,6 +348,11 @@ export default class Ukiyo {
 
     if (this.wrapper.style.zIndex !== 'auto') {
       this.wrapper.style.zIndex = '';
+    }
+
+    if (this.wrapper.style.borderRadius !== '0px') {
+      this.wrapper.style.borderRadius = '';
+      this.element.style.borderRadius = '';
     }
 
     this._setStyles();
