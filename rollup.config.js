@@ -1,5 +1,6 @@
 import buble from '@rollup/plugin-buble';
 import { terser } from 'rollup-plugin-terser';
+import serve from 'rollup-plugin-serve'
 
 const bubleOptions = {
   exclude: ['node_modules/**'],
@@ -13,5 +14,5 @@ export default {
     format: 'umd',
     name: 'Ukiyo'
   },
-  plugins: [buble(bubleOptions), terser()]
+  plugins: [buble(bubleOptions), terser(), serve('docs')]
 };
