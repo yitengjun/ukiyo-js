@@ -1,9 +1,10 @@
 <div align="center">
   <h1>
-    <img width="165" src="./ukiyo.png" alt="">
+    <img width="150" src="./ukiyo-icon.svg" alt="Ukiyo.js">
     <br>
-    Ukiyo.js</h1>
-  <p>Simple and lightweight JavaScript library for modern background parallax,<br>with support for picture elements and any images.</p>
+    Ukiyo.js
+  </h1>
+  <p>Modern parallax library for picture elements and any images</p>
   <p>
     <img src="https://img.shields.io/bundlephobia/minzip/ukiyojs">
     <img src="https://img.shields.io/github/license/yitengjun/ukiyojs">
@@ -27,7 +28,7 @@ yarn add ukiyojs
 
 or via CDN:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/ukiyojs@3.0.3/dist/ukiyo.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ukiyojs@4.0.0/dist/ukiyo.min.js"></script>
 ```
 
 Import Ukiyo.js:
@@ -37,12 +38,12 @@ import Ukiyo from "ukiyojs";
 
 ## Usage
 ### HTML
-Give the element you want to parallax a cool name to call it in JavaScript.
-#### → ```<img>```
+Give the element you want to parallax a cool name in order to call it in JavaScript.
+#### 🏞 ```<img>```
 ```html
 <img class="ukiyo" src="image.jpg">
 ```
-#### → ```<picture>```
+#### 🏞 ```<picture>```
 ```html
 <picture>
   <source srcset="~">
@@ -50,35 +51,31 @@ Give the element you want to parallax a cool name to call it in JavaScript.
 <picture>
 ```
 ```picture``` tag element is also supported: set the parallax to the ```img``` tag inside the picture tag.
-#### → ```<video>```
+#### 📺 ```<video>```
 ```html
 <video class="ukiyo" src="~" type="~">
 ```
-#### → Using ```background-image```
+#### 🖼️ Using ```background-image```
 ```html
 <div class="ukiyo"></div>
 ```
 > Don't forget the styling of ```background-image``` on element.
 
 ### JavaScript
+To instantiate Ukiyo, the first argument should specify the element to be parallaxed.
 ```javascript
-const image = document.querySelector('.ukiyo');
+// CSS selector
+new Ukiyo(".ukiyo")
 
-new Ukiyo(image)
+// or node
+const images = document.querySelectorAll(".ukiyo")
+new Ukiyo(images)
+
+// or HTMLCollection
+const images = document.getElementsByClassName('ukiyo');
+new simpleParallax(images);
 ```
 You are now ready to go.
-
-> If you want to apply it to more than one element, you need to loop through them as follows:
-```javascript
-const images = document.querySelectorAll(".ukiyo");
-// You can do the loop in any way you like.
-images.forEach(image => {
-  new Ukiyo(image, {
-    speed: 2,
-    scale: 1.25
-  });
-});
-```
 
 ## Options
 
@@ -88,21 +85,23 @@ images.forEach(image => {
 | ```speed``` | ```number```  | ```1.5``` | Parallax speed. | 
 | ```willChange``` | ```boolean``` | ```false``` | If true, the element will be given a ```will-change: transform``` when Parallax is active. | 
 | ```wrapperClass``` | ```string```  | ```null``` | Class name of the automatically generated wrapper element. | 
+| ```externalRAF``` | ```boolean```  | ```false``` | Use external requestAnimationFrame | 
 
-These can be configured with the following JS code:
+These configurations can be made with the following JavaScript code:
 ```javascript
-const parallax = document.querySelector('.image');
+const parallax = document.querySelector('.image')
 
 new Ukiyo(parallax, {
     scale: 1.5, // 1~2 is recommended
     speed: 1.5, // 1~2 is recommended
     willChange: true, // This may not be valid in all cases
-    wrapperClass: "ukiyo-wrapper"
+    wrapperClass: "ukiyo-wrapper",
+    externalRAF: false
 })
 ```
 
 ### Element Options
-These options can be set individually for an element using the ```data-u-*``` attribute:
+These options can be individually set for an element using the ```data-u-*``` attribute, as shown in the following example:
 ```html
 <img
   data-u-scale="2"
@@ -121,24 +120,41 @@ These options can be set individually for an element using the ```data-u-*``` at
 
 > Option names start with ```data-u-*```. Don't forget to prefix the option name with a "**u**", if u do.
 
-## Methods
-### ```reset()```
-Reset the instance and recalculate the size and position of the elements etc :
+### Using external requestAnimationFrame
+By default, parallax animations are automatically depicted in a ```requestAnimationFrame```, but animations can also be called in an external ```requestAnimationFrame```.
 
 ```javascript
-const image = document.querySelector('.image');
-const instance = new Ukiyo(image);
+const parallax = new Ukiyo(".ukiyo", {
+  externalRAF: true
+})
 
-instance.reset();
+function raf(time) {
+  // animate parallax
+  parallax.animate()
+
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+```
+To enable the ```externalRAF``` option, call the animation with the ```animate()``` method in the ```requestAnimationFrame``` process.
+
+## Methods
+### ```reset()```
+To reset the instance and recalculate the size and position of the elements, you can use the following code:
+
+```javascript
+const instance = new Ukiyo(".image")
+
+instance.reset()
 ```
 
 ### ```destroy()```
 Destroy instance:
 ```javascript
-const image = document.querySelector('.image');
-const instance = new Ukiyo(image);
+const instance = new Ukiyo(".image")
 
-instance.destroy();
+instance.destroy()
 ```
 
 ## Browser Support
@@ -146,10 +162,7 @@ instance.destroy();
 | ---------- | ------ | ------- | ------ | ------ | ------ | ---------- | 
 | ❌No Support | ✅Latest | ✅Latest  | ✅Latest | ✅Latest | ✅Latest | ✅Latest     | 
 
-To support older browsers such as IE, you will need to use the Intersection Observer API, ```Promise``` and ```closest()``` polyfills. If you use ```img``` tag, you will also need to use the ```object-fit``` polyfill.
-(Only for v1.0.0. Starting from v2.0.0, it is automatically disabled for use with IE.)
-
-> However, please note that even with polyfill, the Parallax animation does not run smoothly in IE.
+> Parallax animation is automatically disabled on browsers that do not support it.
 
 ## License
 [MIT License](https://github.com/yitengjun/ukiyojs/blob/main/LICENSE)
