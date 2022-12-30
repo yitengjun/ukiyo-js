@@ -1,18 +1,23 @@
-section {
-  position: relative;
-  width: 100%;
-}
-
 body {
   color: #fff;
   background-color: #2b2b2b;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
   width: 100%;
+  min-height: 1000vh;
+}
+
+section {
+  position: relative;
+  width: 100%;
 }
 
 a {
   color: inherit;
+}
+
+img {
+  object-fit: cover;
 }
 
 #container {
@@ -121,6 +126,11 @@ footer {
 }
 
 @media screen and (max-width: 800px) {
+  .fv {
+    height: 1000px;
+    width: 100%;
+  }
+
   .heading {
     width: 92.5%;
   }
@@ -145,7 +155,6 @@ footer {
 
   .img-size-full {
     height: 100vh;
-    height: 100vh;
   }
 
   .img-size-1 {
@@ -160,6 +169,11 @@ footer {
 }
 
 @media screen and (max-width: 500px) {
+  .fv {
+    height: 700px;
+    width: 100%;
+  }
+
   .heading a {
     font-size: 3vw;
     padding-left: 1em;
@@ -168,5 +182,14 @@ footer {
 
   .heading h1 {
     font-size: 7.5vw;
+  }
+
+  .img-size-full {
+    height: 500px;
+  }
+
+  .img-size-2 {
+    width: 75%;
+    height: 500px;
   }
 }

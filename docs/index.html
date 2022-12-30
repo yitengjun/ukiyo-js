@@ -17,11 +17,10 @@
     <h1>Ukiyo.js</h1>
     <a href="https://github.com/yitengjun/ukiyojs" target="_blank">see on GitHub</a>
   </div>
-
   <div id="container">
     <section class="fv">
-      <!-- option +scale +willchange -->
-      <img class="ukiyo fv_img1" src="https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&q=80" data-u-speed="1.7" data-u-willchange decoding="async">
+      <!-- option + scale + willchange -->
+      <img class="ukiyo fv_img1" data-u-wrapper-class="aaaa" src="https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&q=80" data-u-willchange decoding="async">
     </section>
 
     <section class="content">
@@ -63,21 +62,26 @@
     </footer>
   </div>
 
-  <!-- <script src="../dist/ukiyo.min.js"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/ukiyojs@3.0.2/dist/ukiyo.min.js"></script>
-  <script src="scroll.js"></script>
+  <script src="./js/ukiyo.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@latest/bundled/lenis.js"></script>
   <script>
     /**
      * Ukiyo.js
      */
-    const targets = document.querySelectorAll('.ukiyo');
-    targets.forEach(target => {
-      const parallax = new Ukiyo(target, {
-        // speed: 2,
-        // scale: 1.25
-      });
-    })
-  </script>
+    const parallax = new Ukiyo(".ukiyo", {
+      externalRAF: true
+    });
 
+    const lenis = new Lenis();
+
+    function raf(time) {
+      parallax.animate();
+
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  </script>
 </body>
 </html>
