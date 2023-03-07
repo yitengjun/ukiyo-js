@@ -1,4 +1,9 @@
-export type TElement = string | HTMLElement | HTMLElement[] | NodeList | HTMLCollection;
+export type TElement =
+  | string
+  | HTMLElement
+  | HTMLElement[]
+  | NodeList
+  | HTMLCollection;
 
 /**
  * Parallax Options

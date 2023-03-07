@@ -21,7 +21,10 @@ export default class Ukiyo {
     this.options = options;
 
     this.instances = [];
-    this.externalRAF = this.options && this.options.externalRAF ? this.options.externalRAF : false;
+    this.externalRAF =
+      this.options && this.options.externalRAF
+        ? this.options.externalRAF
+        : false;
     this.onResizeEvent = this.resize.bind(this);
     this.isInit = false;
 
@@ -37,7 +40,9 @@ export default class Ukiyo {
     if (this.isInit) return;
 
     // Create parallax
-    this.instances = this.elements.map((element: HTMLElement) => new Parallax(element, this.options));
+    this.instances = this.elements.map(
+      (element: HTMLElement) => new Parallax(element, this.options),
+    );
 
     if (!this.externalRAF) {
       this.animate();

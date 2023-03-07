@@ -4,7 +4,9 @@ import type { TElement } from '../types/index';
  * Check if the current browser supports the required features
  */
 export const isSupportedBrowser = (): boolean => {
-  const promise = typeof Promise !== 'undefined' && Promise.toString().indexOf('[native code]') !== -1;
+  const promise =
+    typeof Promise !== 'undefined' &&
+    Promise.toString().indexOf('[native code]') !== -1;
   const closest = typeof Element !== 'undefined' && Element.prototype.closest;
 
   return promise && closest && 'IntersectionObserver' in window;
@@ -32,7 +34,8 @@ const convertToArray = (nodeList: NodeList | HTMLCollection): HTMLElement[] => {
  */
 export const getElements = (elements: TElement): HTMLElement[] => {
   if (Array.isArray(elements)) return elements;
-  if (typeof elements === 'string') return convertToArray(document.querySelectorAll(elements));
+  if (typeof elements === 'string')
+    return convertToArray(document.querySelectorAll(elements));
   if (elements instanceof HTMLElement) return [elements];
   if (elements instanceof NodeList) return convertToArray(elements);
   if (elements instanceof HTMLCollection) return convertToArray(elements);

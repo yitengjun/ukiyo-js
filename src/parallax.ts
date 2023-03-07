@@ -61,10 +61,13 @@ export class Parallax {
   private updateOptions(): void {
     const elementOptionScale = this.element.getAttribute('data-u-scale');
     const elementOptionSpeed = this.element.getAttribute('data-u-speed');
-    const elementOptionWillChange = this.element.getAttribute('data-u-willchange');
+    const elementOptionWillChange =
+      this.element.getAttribute('data-u-willchange');
 
-    if (elementOptionScale !== null) this.options.scale = Number(elementOptionScale);
-    if (elementOptionSpeed !== null) this.options.speed = Number(elementOptionSpeed);
+    if (elementOptionScale !== null)
+      this.options.scale = Number(elementOptionScale);
+    if (elementOptionSpeed !== null)
+      this.options.speed = Number(elementOptionSpeed);
     if (elementOptionWillChange !== null) this.options.willChange = true;
   }
 
@@ -80,11 +83,18 @@ export class Parallax {
     const elementStyle = this.element.style;
 
     // Difference between the height of the element and the wrapper
-    this.overflow = Math.floor((elementHeight - elementHeight * this.options.scale) * 10) / 10;
+    this.overflow =
+      Math.floor((elementHeight - elementHeight * this.options.scale) * 10) /
+      10;
     this.overflowAbs = Math.abs(this.overflow);
 
     // When using both margin: auto and position: absolute
-    if (isPositionAbsolute && style.marginRight !== '0px' && style.marginLeft !== '0px' && style.marginLeft === style.marginRight) {
+    if (
+      isPositionAbsolute &&
+      style.marginRight !== '0px' &&
+      style.marginLeft !== '0px' &&
+      style.marginLeft === style.marginRight
+    ) {
       wrapperStyle.margin = 'auto';
     }
 
@@ -116,7 +126,9 @@ export class Parallax {
       wrapperStyle.position = 'relative';
     }
 
-    const hasGrid = style.gridArea !== 'auto' && style.gridArea !== 'auto / auto / auto / auto';
+    const hasGrid =
+      style.gridArea !== 'auto' &&
+      style.gridArea !== 'auto / auto / auto / auto';
     if (hasGrid) {
       wrapperStyle.gridArea = style.gridArea;
       elementStyle.gridArea = 'auto';
@@ -165,6 +177,7 @@ export class Parallax {
       wrapperStyle.width = elementWidth + 'px';
       elementStyle.width = '100%';
     }
+
     if (style.maxHeight !== 'none') {
       wrapperStyle.maxHeight = style.maxHeight;
       elementStyle.maxHeight = 'none';
@@ -184,8 +197,10 @@ export class Parallax {
    * Wrap element
    */
   private wrapElement(): void {
-    const elementOptionWrapperClass: string | null | undefined = this.element.getAttribute('data-u-wrapper-class');
-    const customClass: string | null = elementOptionWrapperClass || this.options.wrapperClass;
+    const elementOptionWrapperClass: string | null | undefined =
+      this.element.getAttribute('data-u-wrapper-class');
+    const customClass: string | null =
+      elementOptionWrapperClass || this.options.wrapperClass;
 
     if (customClass) {
       this.wrapper.classList.add(customClass);
@@ -230,7 +245,10 @@ export class Parallax {
       threshold: 0,
     };
 
-    this.observer = new IntersectionObserver(this.handleIntersect.bind(this), options);
+    this.observer = new IntersectionObserver(
+      this.handleIntersect.bind(this),
+      options,
+    );
     this.observer.observe(this.wrapper);
   }
 
@@ -274,14 +292,16 @@ export class Parallax {
     let scrollTop = window.pageYOffset;
     if (scrollTop < 0) scrollTop = 0;
 
-    const elementOffsetTop = this.wrapper.getBoundingClientRect().top + scrollTop;
-
+    const elementOffsetTop =
+      this.wrapper.getBoundingClientRect().top + scrollTop;
     const distance = scrollTop + this.vh - elementOffsetTop;
-    const percentageDistance = distance / ((this.vh + this.wrapperHeight!) / 100);
-
+    const percentageDistance =
+      distance / ((this.vh + this.wrapperHeight!) / 100);
     const percentage = Math.min(100, Math.max(0, percentageDistance)) / 100;
 
-    const translateValue = this.overflow! + this.overflowAbs! * percentage * this.options.speed * this.damp;
+    const translateValue =
+      this.overflow! +
+      this.overflowAbs! * percentage * this.options.speed * this.damp;
 
     return Number(translateValue.toFixed(4));
   }
