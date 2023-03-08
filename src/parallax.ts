@@ -170,7 +170,6 @@ export class Parallax {
       }
 
       wrapperStyle.width = elementWidth + 'px';
-      elementStyle.width = elementWidth + 'px';
     }
 
     if (isPositionAbsolute) {
@@ -187,8 +186,14 @@ export class Parallax {
       elementStyle.minHeight = 'none';
     }
 
-    wrapperStyle.height = elementHeight + 'px';
-    elementStyle.height = elementHeight * this.options.scale + 'px';
+    elementStyle.width = elementWidth + 'px';
+
+    wrapperStyle.setProperty('height', elementHeight + 'px', 'important');
+    elementStyle.setProperty(
+      'height',
+      elementHeight * this.options.scale + 'px',
+      'important',
+    );
 
     this.wrapperHeight = elementHeight;
   }
