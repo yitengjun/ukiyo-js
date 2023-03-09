@@ -13,7 +13,6 @@ export class Parallax {
   private vh: number;
   private observer?: IntersectionObserver;
   private isVisible: boolean;
-  private overflowAbs?: number;
   private wrapperHeight?: number;
   private damp: number;
   private elementTagName: string;
@@ -86,7 +85,6 @@ export class Parallax {
     this.overflow =
       Math.floor((elementHeight - elementHeight * this.options.scale) * 10) /
       10;
-    this.overflowAbs = Math.abs(this.overflow);
 
     // When using both margin: auto and position: absolute
     if (
@@ -304,9 +302,11 @@ export class Parallax {
       distance / ((this.vh + this.wrapperHeight!) / 100);
     const percentage = Math.min(100, Math.max(0, percentageDistance)) / 100;
 
+    const speedDiff =
+      (this.overflow! * this.options.speed - this.overflow!) / 2;
     const translateValue =
-      this.overflow! +
-      this.overflowAbs! * percentage * this.options.speed * this.damp;
+      this.overflow! * (1 - percentage) * this.options.speed * this.damp -
+      speedDiff;
 
     return Number(translateValue.toFixed(4));
   }
