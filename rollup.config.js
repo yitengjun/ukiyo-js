@@ -28,6 +28,11 @@ export default {
       sourcemap: false,
     },
     {
+      file: './dist/ukiyo.min.js',
+      format: 'umd',
+      name: 'Ukiyo',
+    },
+    {
       file: './docs/js/ukiyo.min.js',
       format: 'umd',
       name: 'Ukiyo',
