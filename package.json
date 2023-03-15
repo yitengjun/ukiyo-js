@@ -7,7 +7,9 @@
     "type": "git",
     "url": "git+https://github.com/yitengjun/ukiyojs.git"
   },
-  "main": "./dist/ukiyo.min.js",
+  "main": "./dist/ukiyo.esm.min.js",
+  "module": "./dist/ukiyo.esm.min.js",
+  "browser": "./dist/ukiyo.umd.min.js",
   "keywords": [
     "javascript",
     "parallax",
@@ -57,5 +59,8 @@
       "@semantic-release/github",
       "@semantic-release/git"
     ]
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
