@@ -1,6 +1,7 @@
 import pluginTypescript from '@rollup/plugin-typescript';
 import buble from '@rollup/plugin-buble';
 import terser from '@rollup/plugin-terser';
+import pkg from './package.json';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -16,10 +17,15 @@ export default {
   input: './src/ukiyo.ts',
   output: [
     {
-      sourcemap: false,
-      file: './dist/ukiyo.min.js',
-      format: 'umd',
       name: 'Ukiyo',
+      file: pkg.browser,
+      format: 'umd',
+      sourcemap: false,
+    },
+    {
+      file: pkg.module,
+      format: 'es',
+      sourcemap: false,
     },
     {
       file: './docs/js/ukiyo.min.js',
