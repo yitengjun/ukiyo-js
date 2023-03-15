@@ -59,5 +59,8 @@
       "@semantic-release/github",
       "@semantic-release/git"
     ]
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
