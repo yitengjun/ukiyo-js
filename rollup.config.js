@@ -14,7 +14,7 @@ const bubleOptions = {
 };
 
 export default {
-  input: './src/ukiyo.ts',
+  input: './src/index.ts',
   output: [
     {
       name: 'Ukiyo',
