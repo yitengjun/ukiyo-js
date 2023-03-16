@@ -10,6 +10,7 @@
   "main": "./dist/ukiyo.esm.min.js",
   "module": "./dist/ukiyo.esm.min.js",
   "browser": "./dist/ukiyo.umd.min.js",
+  "types": "./dist/types/index.d.ts",
   "keywords": [
     "javascript",
     "parallax",
@@ -22,7 +23,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "rollup -c -w",
-    "build": "rollup -c",
+    "build": "run-p build:*",
+    "build:bundle": "rollup -c",
+    "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types",
     "lint": "eslint  \"./src/**/*.ts\" --fix",
     "format": "prettier --write \"./src/**/*.ts\" \"./types/**/*.ts\"",
     "serve": "browser-sync start --config \"./.bs-config.js\"",
@@ -42,6 +45,7 @@
     "browser-sync": "^2.27.10",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.5.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.8.0",
     "rollup": "^2.70.1",
     "semantic-release": "^18.0.1",
