@@ -1,3 +1,4 @@
+import type { UkiyoOptions, TElement } from '../types/index';
 export default class Ukiyo {
     private elements;
     private options;
@@ -7,7 +8,7 @@ export default class Ukiyo {
     private timer?;
     private onResizeEvent;
     private isInit;
-    private constructor();
+    constructor(elements: TElement | null, options: UkiyoOptions);
     /**
      * Initializes
      */
