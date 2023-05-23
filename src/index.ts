@@ -4,7 +4,7 @@ import type { UkiyoOptions, TElement } from '../types/index';
 
 export default class Ukiyo {
   private elements: HTMLElement[] = [];
-  private options!: UkiyoOptions;
+  private options?: UkiyoOptions;
   private instances: Parallax[];
   private externalRAF: boolean;
   private requestId?: number;
@@ -12,7 +12,7 @@ export default class Ukiyo {
   private onResizeEvent: EventListenerOrEventListenerObject;
   private isInit: boolean;
 
-  constructor(elements: TElement | null, options: UkiyoOptions) {
+  constructor(elements: TElement | null, options?: UkiyoOptions) {
     if (!elements) {
       throw new Error(`Argument 'elements' is null.`);
     }

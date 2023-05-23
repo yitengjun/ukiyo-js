@@ -17,7 +17,7 @@ export class Parallax {
   private damp: number;
   private elementTagName: string;
 
-  constructor(element: HTMLElement, options: Partial<UkiyoOptions>) {
+  constructor(element: HTMLElement, options?: UkiyoOptions) {
     this.element = element;
     this.wrapper = document.createElement('div');
 
@@ -83,7 +83,7 @@ export class Parallax {
 
     // Difference between the height of the element and the wrapper
     this.overflow =
-      Math.floor((elementHeight - elementHeight * this.options.scale) * 10) /
+      Math.floor((elementHeight - elementHeight * this.options.scale!) * 10) /
       10;
 
     // When using both margin: auto and position: absolute
@@ -189,7 +189,7 @@ export class Parallax {
     wrapperStyle.setProperty('height', elementHeight + 'px', 'important');
     elementStyle.setProperty(
       'height',
-      elementHeight * this.options.scale + 'px',
+      elementHeight * this.options.scale! + 'px',
       'important',
     );
 
@@ -203,7 +203,7 @@ export class Parallax {
     const elementOptionWrapperClass: string | null | undefined =
       this.element.getAttribute('data-u-wrapper-class');
     const customClass: string | null =
-      elementOptionWrapperClass || this.options.wrapperClass;
+      elementOptionWrapperClass || this.options.wrapperClass!;
 
     if (customClass) {
       this.wrapper.classList.add(customClass);
@@ -303,9 +303,9 @@ export class Parallax {
     const percentage = Math.min(100, Math.max(0, percentageDistance)) / 100;
 
     const speedDiff =
-      (this.overflow! * this.options.speed - this.overflow!) / 2;
+      (this.overflow! * this.options.speed! - this.overflow!) / 2;
     const translateValue =
-      this.overflow! * (1 - percentage) * this.options.speed * this.damp -
+      this.overflow! * (1 - percentage) * this.options.speed! * this.damp -
       speedDiff;
 
     return Number(translateValue.toFixed(4));
@@ -317,8 +317,8 @@ export class Parallax {
   private calcDamp(screenSize: number): number {
     const max = 1;
     const min = 0.5;
-    let scale = this.options.scale;
-    let speed = this.options.speed;
+    let scale = this.options.scale!;
+    let speed = this.options.speed!;
 
     if ((speed >= 1.4 || scale >= 1.4) && screenSize <= 1000) {
       if (scale < 1) scale = 1;
