@@ -12,7 +12,7 @@ export default class Ukiyo {
   private onResizeEvent: EventListenerOrEventListenerObject;
   private isInit: boolean;
 
-  private constructor(elements: TElement | null, options: UkiyoOptions) {
+  constructor(elements: TElement | null, options: UkiyoOptions) {
     if (!elements) {
       throw new Error(`Argument 'elements' is null.`);
     }
