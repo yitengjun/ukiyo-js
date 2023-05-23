@@ -13,7 +13,7 @@ export declare class Parallax {
     private wrapperHeight?;
     private damp;
     private elementTagName;
-    constructor(element: HTMLElement, options: Partial<UkiyoOptions>);
+    constructor(element: HTMLElement, options?: UkiyoOptions);
     /**
      * Create Parallax
      */

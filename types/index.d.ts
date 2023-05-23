@@ -13,29 +13,29 @@ export interface UkiyoOptions {
    * Parallax scale
    * @default 1.5
    */
-  scale: number;
+  scale?: number;
 
   /**
    * Parallax speed
    * @default 1.5
    */
-  speed: number;
+  speed?: number;
 
   /**
    * Wrapper element class
    * @default null
    */
-  wrapperClass: string | null;
+  wrapperClass?: string | null;
 
   /**
    * Enabling the CSS will-change property during parallax animation
    * @default false
    */
-  willChange: boolean;
+  willChange?: boolean;
 
   /**
    * Animate parallax using external requestAnimationFrame()
    * @default false
    */
-  externalRAF: boolean;
+  externalRAF?: boolean;
 }
