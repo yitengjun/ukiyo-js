@@ -1,6 +1,6 @@
-import { isSupportedBrowser, getElements } from './utils';
-import { Parallax } from './parallax';
-import type { UkiyoOptions, TElement } from '../types/index';
+import { isSupportedBrowser, getElements } from './utils.ts';
+import { Parallax } from './parallax.ts';
+import type { UkiyoOptions, TElement } from '../types/index.ts';
 
 export default class Ukiyo {
   private elements: HTMLElement[] = [];

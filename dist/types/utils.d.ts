@@ -1,4 +1,4 @@
-import type { TElement } from '../types/index';
+import type { TElement } from '../types/index.ts';
 /**
  * Check if the current browser supports the required features
  */

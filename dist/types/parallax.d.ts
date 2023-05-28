@@ -1,4 +1,4 @@
-import type { UkiyoOptions } from '../types/index';
+import type { UkiyoOptions } from '../types/index.ts';
 /**
  * Parallax class
  */
