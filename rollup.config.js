@@ -26,11 +26,7 @@ export default {
       file: pkg.module,
       format: 'es',
       sourcemap: false,
-    },
-    {
-      file: './dist/ukiyo.min.js',
-      format: 'umd',
-      name: 'Ukiyo',
+      exports: 'named',
     },
     {
       file: './docs/js/ukiyo.min.js',
@@ -38,7 +34,7 @@ export default {
       name: 'Ukiyo',
     },
     {
-      file: './demo/ukiyo.min.js',
+      file: './example/ukiyo.min.js',
       format: 'umd',
       name: 'Ukiyo',
     },

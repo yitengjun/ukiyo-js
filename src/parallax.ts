@@ -1,6 +1,6 @@
-import type { UkiyoOptions } from '../types/index';
-import { isImageLoaded, isSPSafari } from './utils';
-import { defaults } from './options';
+import type { UkiyoOptions } from '../types/index.ts';
+import { isImageLoaded, isSPSafari } from './utils.ts';
+import { defaults } from './options.ts';
 
 /**
  * Parallax class

@@ -7,10 +7,22 @@
     "type": "git",
     "url": "git+https://github.com/yitengjun/ukiyojs.git"
   },
+  "engines": {
+    "node": ">=16"
+  },
+  "type": "module",
   "main": "./dist/ukiyo.esm.min.js",
+  "umd:main": "./dist/ukiyo.umd.min.js",
   "module": "./dist/ukiyo.esm.min.js",
   "browser": "./dist/ukiyo.umd.min.js",
   "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/ukiyo.esm.min.js",
+      "default": "./dist/ukiyo.umd.min.js"
+    }
+  },
   "keywords": [
     "javascript",
     "parallax",
@@ -23,9 +35,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "rollup -c -w",
-    "build": "run-p build:*",
-    "build:bundle": "rollup -c",
-    "build:types": "tsc --declaration --emitDeclarationOnly --declarationDir ./dist/types",
+    "build": "rollup -c",
     "lint": "eslint  \"./src/**/*.ts\" --fix",
     "format": "prettier --write \"./src/**/*.ts\" \"./types/**/*.ts\"",
     "serve": "browser-sync start --config \"./.bs-config.js\"",
@@ -34,7 +44,7 @@
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
     "@rollup/plugin-terser": "^0.2.1",
-    "@rollup/plugin-typescript": "^9.0.2",
+    "@rollup/plugin-typescript": "^11.1.1",
     "@semantic-release/commit-analyzer": "^9.0.2",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/github": "^8.0.2",
@@ -45,12 +55,10 @@
     "browser-sync": "^2.27.10",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.5.0",
-    "npm-run-all": "^4.1.5",
     "prettier": "^2.8.0",
     "rollup": "^2.70.1",
     "semantic-release": "^18.0.1",
-    "tslib": "^2.4.1",
-    "typescript": "^4.9.3"
+    "tslib": "^2.4.1"
   },
   "release": {
     "branches": [
