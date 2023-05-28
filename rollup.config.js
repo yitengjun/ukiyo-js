@@ -29,6 +29,11 @@ export default {
       exports: 'named',
     },
     {
+      file: './dist/ukiyo.min.js',
+      format: 'umd',
+      name: 'Ukiyo',
+    },
+    {
       file: './docs/js/ukiyo.min.js',
       format: 'umd',
       name: 'Ukiyo',
