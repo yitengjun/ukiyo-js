@@ -33,16 +33,6 @@ export default {
       format: 'umd',
       name: 'Ukiyo',
     },
-    {
-      file: './docs/js/ukiyo.min.js',
-      format: 'umd',
-      name: 'Ukiyo',
-    },
-    {
-      file: './example/ukiyo.min.js',
-      format: 'umd',
-      name: 'Ukiyo',
-    },
   ],
   plugins: [
     pluginTypescript({
