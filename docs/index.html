@@ -73,7 +73,11 @@
       externalRAF: true
     });
 
-    const lenis = new Lenis();
+    const lenis = new Lenis({
+      smoothWheel: true,
+      smoothTouch: false,
+      normalizeWheel: true,
+    });
 
     function raf(time) {
       parallax.animate();

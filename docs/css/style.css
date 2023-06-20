@@ -94,6 +94,7 @@ img {
 
 .ukiyo {
   margin-top: 12.5em;
+  pointer-events: none;
 }
 
 .img-size-1 {
