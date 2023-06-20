@@ -38,7 +38,7 @@
     "build": "rollup -c",
     "lint": "eslint  \"./src/**/*.ts\" --fix",
     "format": "prettier --write \"./src/**/*.ts\" \"./types/**/*.ts\"",
-    "serve": "browser-sync start --config \"./.bs-config.js\"",
+    "serve": "browser-sync start --config \"./.bs-config.cjs\"",
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
