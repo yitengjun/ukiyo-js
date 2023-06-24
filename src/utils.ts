@@ -19,6 +19,7 @@ export const isImageLoaded = async (src: string): Promise<HTMLImageElement> => {
   const image = new Image();
   image.src = src;
   await image.decode();
+
   return image;
 };
 
@@ -39,6 +40,7 @@ export const getElements = (elements: TElement): HTMLElement[] => {
   if (elements instanceof HTMLElement) return [elements];
   if (elements instanceof NodeList) return convertToArray(elements);
   if (elements instanceof HTMLCollection) return convertToArray(elements);
+
   return [elements];
 };
 
@@ -50,5 +52,6 @@ export const isSPSafari = (): boolean => {
   const isSP = !!userAgent.match(/iPad/i) || !!userAgent.match(/iPhone/i);
   const webkit = !!userAgent.match(/WebKit/i);
   const isSPSafari = isSP && webkit && !userAgent.match(/CriOS/i);
+
   return isSPSafari;
 };
