@@ -3,6 +3,10 @@
  */
 module.exports = {
   ui: false,
-  server: ['docs'],
+  server: {
+    routes: {
+      "/": "example"
+    }
+  },
   notify: false,
 };
