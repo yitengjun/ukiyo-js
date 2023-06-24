@@ -230,7 +230,8 @@ export class Parallax {
    */
   private checkVisible(): void {
     const rect = this.wrapper.getBoundingClientRect();
-    const isInView = 0 < rect.bottom && rect.top < this.vh;
+    const isInView = 0 < rect.bottom && rect.top < window.innerHeight;
+
     if (isInView) {
       this.onEnter();
     } else {
