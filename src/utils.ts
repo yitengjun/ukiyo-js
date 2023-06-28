@@ -4,12 +4,15 @@ import type { TElement } from '../types/index.ts';
  * Check if the current browser supports the required features
  */
 export const isSupportedBrowser = (): boolean => {
-  const promise =
+  const isSupportPromise =
     typeof Promise !== 'undefined' &&
     Promise.toString().indexOf('[native code]') !== -1;
-  const closest = typeof Element !== 'undefined' && Element.prototype.closest;
+  const isSupportClosest =
+    typeof Element !== 'undefined' && Element.prototype.closest;
 
-  return promise && closest && 'IntersectionObserver' in window;
+  return (
+    isSupportPromise && isSupportClosest && 'IntersectionObserver' in window
+  );
 };
 
 /**
@@ -26,9 +29,8 @@ export const isImageLoaded = async (src: string): Promise<HTMLImageElement> => {
 /**
  * Convert a NodeList to an array
  */
-const convertToArray = (nodeList: NodeList | HTMLCollection): HTMLElement[] => {
-  return Array.prototype.slice.call(nodeList);
-};
+const convertToArray = (nodeList: NodeList | HTMLCollection): HTMLElement[] =>
+  Array.prototype.slice.call(nodeList);
 
 /**
  * Get an array of elements
@@ -48,10 +50,10 @@ export const getElements = (elements: TElement): HTMLElement[] => {
  * Determine if the current browser is Safari on iOS
  */
 export const isSPSafari = (): boolean => {
-  const userAgent = window.navigator.userAgent;
+  const { userAgent } = window.navigator;
   const isSP = !!userAgent.match(/iPad/i) || !!userAgent.match(/iPhone/i);
-  const webkit = !!userAgent.match(/WebKit/i);
-  const isSPSafari = isSP && webkit && !userAgent.match(/CriOS/i);
+  const isWebKit = !!userAgent.match(/WebKit/i);
+  const isSPSafari = isSP && isWebKit && !userAgent.match(/CriOS/i);
 
   return isSPSafari;
 };

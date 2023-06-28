@@ -7,14 +7,23 @@ import { defaults } from './options.ts';
  */
 export class Parallax {
   private options: UkiyoOptions;
+
   private element: HTMLElement;
+
   private wrapper: HTMLElement;
+
   private overflow?: number;
+
   private vh: number;
+
   private observer?: IntersectionObserver;
+
   private isVisible: boolean;
+
   private wrapperHeight?: number;
+
   private damp: number;
+
   private elementTagName: string;
 
   constructor(element: HTMLElement, options?: UkiyoOptions) {
@@ -167,11 +176,11 @@ export class Parallax {
         elementStyle.marginRight = '0';
       }
 
-      wrapperStyle.width = elementWidth + 'px';
+      wrapperStyle.width = `${elementWidth}px`;
     }
 
     if (isPositionAbsolute) {
-      wrapperStyle.width = elementWidth + 'px';
+      wrapperStyle.width = `${elementWidth}px`;
       elementStyle.width = '100%';
     }
 
@@ -184,12 +193,12 @@ export class Parallax {
       elementStyle.minHeight = 'none';
     }
 
-    elementStyle.width = elementWidth + 'px';
+    elementStyle.width = `${elementWidth}px`;
 
-    wrapperStyle.setProperty('height', elementHeight + 'px', 'important');
+    wrapperStyle.setProperty('height', `${elementHeight}px`, 'important');
     elementStyle.setProperty(
       'height',
-      elementHeight * this.options.scale! + 'px',
+      `${elementHeight * this.options.scale!}px`,
       'important',
     );
 
@@ -230,7 +239,7 @@ export class Parallax {
    */
   private checkVisible(): void {
     const rect = this.wrapper.getBoundingClientRect();
-    const isInView = 0 < rect.bottom && rect.top < window.innerHeight;
+    const isInView = rect.bottom > 0 && rect.top < window.innerHeight;
 
     if (isInView) {
       this.onEnter();
@@ -316,27 +325,40 @@ export class Parallax {
    * Calculate parallax damp
    */
   private calcDamp(screenSize: number): number {
-    const max = 1;
-    const min = 0.5;
-    let scale = this.options.scale!;
-    let speed = this.options.speed!;
+    const MAX_DAMP_VALUE = 1;
+    const MIN_DAMP_VALUE = 0.5;
+    const SCREEN_SIZE_THRESHOLD_PX = 1000;
+    const PARALLAX_SCALE_THRESHOLD = 1.4;
+    const PARALLAX_SPEED_THRESHOLD = 1.4;
 
-    if ((speed >= 1.4 || scale >= 1.4) && screenSize <= 1000) {
-      if (scale < 1) scale = 1;
-      if (speed < 1) speed = 1;
+    let parallaxScale = this.options.scale!;
+    let parallaxSpeed = this.options.speed!;
 
-      const defaultSpeedScale = 3;
-      const offset = 0.2;
-      const SpeedScale = defaultSpeedScale - (scale + speed);
+    const isParallaxThresholdExceeded =
+      parallaxSpeed >= PARALLAX_SPEED_THRESHOLD ||
+      parallaxScale >= PARALLAX_SCALE_THRESHOLD;
+    const isScreenSizeThresholdExceeded =
+      screenSize <= SCREEN_SIZE_THRESHOLD_PX;
 
-      const screenSizeFactor = 1 - (screenSize / 1000 + SpeedScale);
-      const offsetFactor = 1 + offset - screenSizeFactor;
-      const constrainedFactor = Math.max(min, Math.min(max, offsetFactor));
+    if (isParallaxThresholdExceeded && isScreenSizeThresholdExceeded) {
+      if (parallaxScale < 1) parallaxScale = 1;
+      if (parallaxSpeed < 1) parallaxSpeed = 1;
 
-      return Math.floor(constrainedFactor * 100) / 100;
-    } else {
-      return max;
+      const DEFAULT_SPEED_SCALE = 3;
+      const DAMP_OFFSET = 0.2;
+
+      const speedScale = DEFAULT_SPEED_SCALE - (parallaxScale + parallaxSpeed);
+      const screenSizeFactor = 1 - (screenSize / 1000 + speedScale);
+      const offsetFactor = 1 + DAMP_OFFSET - screenSizeFactor;
+      const constrainedFactor = Math.max(
+        MIN_DAMP_VALUE,
+        Math.min(MAX_DAMP_VALUE, offsetFactor),
+      );
+      const dampValue = Math.floor(constrainedFactor * 100) / 100;
+
+      return dampValue;
     }
+    return MAX_DAMP_VALUE;
   }
 
   /**
