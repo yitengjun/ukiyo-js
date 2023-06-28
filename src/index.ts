@@ -4,12 +4,19 @@ import type { UkiyoOptions, TElement } from '../types/index.ts';
 
 export default class Ukiyo {
   private elements: HTMLElement[] = [];
+
   private options?: UkiyoOptions;
+
   private instances: Parallax[];
+
   private externalRAF: boolean;
+
   private requestId?: number;
+
   private timer?: number;
+
   private onResizeEvent: EventListenerOrEventListenerObject;
+
   private isInit: boolean;
 
   constructor(elements: TElement | null, options?: UkiyoOptions) {
