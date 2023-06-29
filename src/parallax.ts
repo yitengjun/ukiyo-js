@@ -209,26 +209,26 @@ export class Parallax {
    * Wrap element
    */
   private wrapElement(): void {
-    const elementOptionWrapperClass: string | null | undefined =
-      this.element.getAttribute('data-u-wrapper-class');
-    const customClass: string | null =
-      elementOptionWrapperClass || this.options.wrapperClass!;
+    const elementWrapperClass = this.element.getAttribute(
+      'data-u-wrapper-class',
+    );
+    const wrapperClass = elementWrapperClass || this.options.wrapperClass;
 
-    if (customClass) {
-      this.wrapper.classList.add(customClass);
+    if (wrapperClass) {
+      this.wrapper.classList.add(wrapperClass);
     }
 
-    const pictureTag: HTMLElement | null = this.element.closest('picture');
+    const pictureElement = this.element.closest('picture');
 
-    if (pictureTag !== null) {
-      if (pictureTag.parentNode !== null) {
-        pictureTag.parentNode.insertBefore(this.wrapper, pictureTag);
+    if (pictureElement !== null) {
+      if (pictureElement.parentNode !== null) {
+        pictureElement.parentNode.insertBefore(this.wrapper, pictureElement);
       }
-      this.wrapper.appendChild(pictureTag);
+      this.wrapper.appendChild(pictureElement);
     } else {
-      const parent = this.element.parentNode;
-      if (parent !== null) {
-        parent.insertBefore(this.wrapper, this.element);
+      const parentElement = this.element.parentNode;
+      if (parentElement !== null) {
+        parentElement.insertBefore(this.wrapper, this.element);
       }
       this.wrapper.appendChild(this.element);
     }
@@ -302,12 +302,12 @@ export class Parallax {
    * Calculating the value of parallax
    */
   private calcTranslateValue(): number {
-    let scrollTop = window.pageYOffset;
-    if (scrollTop < 0) scrollTop = 0;
+    let pageYOffset = window.pageYOffset;
+    if (pageYOffset < 0) pageYOffset = 0;
 
-    const elementOffsetTop =
-      this.wrapper.getBoundingClientRect().top + scrollTop;
-    const distance = scrollTop + this.vh - elementOffsetTop;
+    const wrapperOffsetTop =
+      this.wrapper.getBoundingClientRect().top + pageYOffset;
+    const distance = pageYOffset + this.vh - wrapperOffsetTop;
     const percentageDistance =
       distance / ((this.vh + this.wrapperHeight!) / 100);
     const percentage = Math.min(100, Math.max(0, percentageDistance)) / 100;
@@ -325,40 +325,41 @@ export class Parallax {
    * Calculate parallax damp
    */
   private calcDamp(screenSize: number): number {
-    const MAX_DAMP_VALUE = 1;
-    const MIN_DAMP_VALUE = 0.5;
-    const SCREEN_SIZE_THRESHOLD_PX = 1000;
+    const MAX_DAMP = 1;
+    const MIN_DAMP = 0.5;
+    const SCREEN_SIZE_THRESHOLD = 1000;
     const PARALLAX_SCALE_THRESHOLD = 1.4;
     const PARALLAX_SPEED_THRESHOLD = 1.4;
 
     let parallaxScale = this.options.scale!;
     let parallaxSpeed = this.options.speed!;
 
-    const isParallaxThresholdExceeded =
+    const isParallaxThresholdReached =
       parallaxSpeed >= PARALLAX_SPEED_THRESHOLD ||
       parallaxScale >= PARALLAX_SCALE_THRESHOLD;
-    const isScreenSizeThresholdExceeded =
-      screenSize <= SCREEN_SIZE_THRESHOLD_PX;
+    const isScreenSizeThresholdReached = screenSize <= SCREEN_SIZE_THRESHOLD;
 
-    if (isParallaxThresholdExceeded && isScreenSizeThresholdExceeded) {
-      if (parallaxScale < 1) parallaxScale = 1;
-      if (parallaxSpeed < 1) parallaxSpeed = 1;
-
-      const DEFAULT_SPEED_SCALE = 3;
-      const DAMP_OFFSET = 0.2;
-
-      const speedScale = DEFAULT_SPEED_SCALE - (parallaxScale + parallaxSpeed);
-      const screenSizeFactor = 1 - (screenSize / 1000 + speedScale);
-      const offsetFactor = 1 + DAMP_OFFSET - screenSizeFactor;
-      const constrainedFactor = Math.max(
-        MIN_DAMP_VALUE,
-        Math.min(MAX_DAMP_VALUE, offsetFactor),
-      );
-      const dampValue = Math.floor(constrainedFactor * 100) / 100;
-
-      return dampValue;
+    if (!isParallaxThresholdReached || !isScreenSizeThresholdReached) {
+      return MAX_DAMP;
     }
-    return MAX_DAMP_VALUE;
+
+    if (parallaxScale < 1) parallaxScale = 1;
+    if (parallaxSpeed < 1) parallaxSpeed = 1;
+
+    const DEFAULT_SPEED_SCALE = 3;
+    const DAMP_OFFSET = 0.2;
+
+    const speedScaleFactor =
+      DEFAULT_SPEED_SCALE - (parallaxScale + parallaxSpeed);
+    const screenSizeFactorOffset = 1 - (screenSize / 1000 + speedScaleFactor);
+    const dampOffsetFactor = 1 + DAMP_OFFSET - screenSizeFactorOffset;
+    const constrainedDampFactor = Math.max(
+      MIN_DAMP,
+      Math.min(MAX_DAMP, dampOffsetFactor),
+    );
+    const roundedDampValue = Math.floor(constrainedDampFactor * 100) / 100;
+
+    return roundedDampValue;
   }
 
   /**
