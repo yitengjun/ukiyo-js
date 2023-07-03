@@ -31,7 +31,7 @@
     "background",
     "parallax-scrolling"
   ],
-  "author": "Yiteng Jun <ito.yitengjun@gmail.com>",
+  "author": "Yiteng Jun <yiteng.work@gmail.com>",
   "license": "MIT",
   "scripts": {
     "dev": "rollup -c -w",
