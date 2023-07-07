@@ -5,14 +5,10 @@ import type { TElement } from './types.ts';
  */
 export const isSupportedBrowser = (): boolean => {
   const isSupportPromise =
-    typeof Promise !== 'undefined' &&
-    Promise.toString().indexOf('[native code]') !== -1;
-  const isSupportClosest =
-    typeof Element !== 'undefined' && Element.prototype.closest;
+    typeof Promise !== 'undefined' && Promise.toString().indexOf('[native code]') !== -1;
+  const isSupportClosest = typeof Element !== 'undefined' && Element.prototype.closest;
 
-  return (
-    isSupportPromise && isSupportClosest && 'IntersectionObserver' in window
-  );
+  return isSupportPromise && isSupportClosest && 'IntersectionObserver' in window;
 };
 
 /**
@@ -37,8 +33,7 @@ const convertToArray = (nodeList: NodeList | HTMLCollection): HTMLElement[] =>
  */
 export const getElements = (elements: TElement): HTMLElement[] => {
   if (Array.isArray(elements)) return elements;
-  if (typeof elements === 'string')
-    return convertToArray(document.querySelectorAll(elements));
+  if (typeof elements === 'string') return convertToArray(document.querySelectorAll(elements));
   if (elements instanceof HTMLElement) return [elements];
   if (elements instanceof NodeList) return convertToArray(elements);
   if (elements instanceof HTMLCollection) return convertToArray(elements);

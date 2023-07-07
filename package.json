@@ -37,7 +37,7 @@
     "dev": "rollup -c -w",
     "build": "rollup -c",
     "lint": "eslint  \"./src/**/*.ts\" --fix",
-    "format": "prettier --write \"./src/**/*.ts\"",
+    "format": "prettier --write \"./src/**/*.ts\" \"./{*.cjs,*.ts,*.js,*.json}\"",
     "serve": "browser-sync start --config \"./.bs-config.cjs\"",
     "semantic-release": "semantic-release"
   },

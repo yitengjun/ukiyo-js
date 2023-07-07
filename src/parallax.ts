@@ -69,8 +69,7 @@ export class Parallax {
   private updateOptions(): void {
     const scaleAttributeValue = this.element.getAttribute('data-u-scale');
     const speedAttributeValue = this.element.getAttribute('data-u-speed');
-    const willChangeAttributeValue =
-      this.element.getAttribute('data-u-willchange');
+    const willChangeAttributeValue = this.element.getAttribute('data-u-willchange');
 
     if (scaleAttributeValue !== null) {
       this.options.scale = Number(scaleAttributeValue);
@@ -97,9 +96,7 @@ export class Parallax {
     const elementStyle = this.element.style;
 
     // Difference between the height of the element and the wrapper
-    this.overflow =
-      Math.floor((elementHeight - elementHeight * this.options.scale!) * 10) /
-      10;
+    this.overflow = Math.floor((elementHeight - elementHeight * this.options.scale!) * 10) / 10;
 
     // When using both margin: auto and position: absolute
     if (
@@ -139,9 +136,7 @@ export class Parallax {
       wrapperStyle.position = 'relative';
     }
 
-    const hasGrid =
-      style.gridArea !== 'auto' &&
-      style.gridArea !== 'auto / auto / auto / auto';
+    const hasGrid = style.gridArea !== 'auto' && style.gridArea !== 'auto / auto / auto / auto';
     if (hasGrid) {
       wrapperStyle.gridArea = style.gridArea;
       elementStyle.gridArea = 'auto';
@@ -202,11 +197,7 @@ export class Parallax {
     elementStyle.width = `${elementWidth}px`;
 
     wrapperStyle.setProperty('height', `${elementHeight}px`, 'important');
-    elementStyle.setProperty(
-      'height',
-      `${elementHeight * this.options.scale!}px`,
-      'important',
-    );
+    elementStyle.setProperty('height', `${elementHeight * this.options.scale!}px`, 'important');
 
     this.wrapperHeight = elementHeight;
   }
@@ -224,8 +215,7 @@ export class Parallax {
 
     const pictureElement = this.element.closest('picture');
 
-    const targetElement =
-      pictureElement !== null ? pictureElement : this.element;
+    const targetElement = pictureElement !== null ? pictureElement : this.element;
 
     const parentElement = targetElement.parentNode;
     if (parentElement !== null) {
@@ -277,10 +267,7 @@ export class Parallax {
     const elementStyle = this.element.style;
     const willChangeValue = 'transform';
 
-    if (
-      this.options.willChange &&
-      elementStyle.willChange !== willChangeValue
-    ) {
+    if (this.options.willChange && elementStyle.willChange !== willChangeValue) {
       elementStyle.willChange = willChangeValue;
     }
     this.isVisible = true;
@@ -306,22 +293,14 @@ export class Parallax {
       scrollYOffset = 0;
     }
 
-    const wrapperTopOffset =
-      this.wrapper.getBoundingClientRect().top + scrollYOffset;
+    const wrapperTopOffset = this.wrapper.getBoundingClientRect().top + scrollYOffset;
     const scrollDistance = scrollYOffset + this.vh - wrapperTopOffset;
-    const scrollDistancePercentage =
-      scrollDistance / ((this.vh + this.wrapperHeight!) / 100);
-    const scrollPercentage =
-      Math.min(100, Math.max(0, scrollDistancePercentage)) / 100;
+    const scrollDistancePercentage = scrollDistance / ((this.vh + this.wrapperHeight!) / 100);
+    const scrollPercentage = Math.min(100, Math.max(0, scrollDistancePercentage)) / 100;
 
-    const speedDifference =
-      (this.overflow! * this.options.speed! - this.overflow!) / 2;
+    const speedDifference = (this.overflow! * this.options.speed! - this.overflow!) / 2;
     const translateValue =
-      this.overflow! *
-      (1 - scrollPercentage) *
-      this.options.speed! *
-      this.damp -
-      speedDifference;
+      this.overflow! * (1 - scrollPercentage) * this.options.speed! * this.damp - speedDifference;
 
     return Number(translateValue.toFixed(4));
   }
@@ -340,8 +319,7 @@ export class Parallax {
     let parallaxSpeed = this.options.speed!;
 
     const isParallaxThresholdReached =
-      parallaxSpeed >= PARALLAX_SPEED_THRESHOLD ||
-      parallaxScale >= PARALLAX_SCALE_THRESHOLD;
+      parallaxSpeed >= PARALLAX_SPEED_THRESHOLD || parallaxScale >= PARALLAX_SCALE_THRESHOLD;
     const isScreenSizeThresholdReached = screenSize <= SCREEN_SIZE_THRESHOLD;
 
     if (!isParallaxThresholdReached || !isScreenSizeThresholdReached) {
@@ -354,14 +332,10 @@ export class Parallax {
     const DEFAULT_SPEED_SCALE = 3;
     const DAMP_OFFSET = 0.2;
 
-    const speedScaleFactor =
-      DEFAULT_SPEED_SCALE - (parallaxScale + parallaxSpeed);
+    const speedScaleFactor = DEFAULT_SPEED_SCALE - (parallaxScale + parallaxSpeed);
     const screenSizeFactorOffset = 1 - (screenSize / 1000 + speedScaleFactor);
     const dampOffsetFactor = 1 + DAMP_OFFSET - screenSizeFactorOffset;
-    const constrainedDampFactor = Math.max(
-      MIN_DAMP,
-      Math.min(MAX_DAMP, dampOffsetFactor),
-    );
+    const constrainedDampFactor = Math.max(MIN_DAMP, Math.min(MAX_DAMP, dampOffsetFactor));
     const roundedDampValue = Math.floor(constrainedDampFactor * 100) / 100;
 
     return roundedDampValue;

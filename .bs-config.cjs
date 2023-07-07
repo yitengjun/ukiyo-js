@@ -5,8 +5,8 @@ module.exports = {
   ui: false,
   server: {
     routes: {
-      "/": "example"
-    }
+      '/': 'example',
+    },
   },
   notify: false,
 };
