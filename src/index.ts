@@ -21,17 +21,14 @@ export default class Ukiyo {
 
   constructor(elements: TElement | null, options?: UkiyoOptions) {
     if (!elements) {
-      throw new Error(`Argument 'elements' is null.`);
+      throw new Error(`Argument 'elements' cannot be null.`);
     }
 
     this.elements = getElements(elements);
     this.options = options;
 
     this.instances = [];
-    this.externalRAF =
-      this.options && this.options.externalRAF
-        ? this.options.externalRAF
-        : false;
+    this.externalRAF = (this.options && this.options.externalRAF) || false;
     this.onResizeEvent = this.resize.bind(this);
     this.isInit = false;
 

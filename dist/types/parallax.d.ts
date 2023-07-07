@@ -3,7 +3,7 @@ import type { UkiyoOptions } from '../types/index.ts';
  * Parallax class
  */
 export declare class Parallax {
-    private options;
+    options: UkiyoOptions;
     private element;
     private wrapper;
     private overflow?;
@@ -19,7 +19,7 @@ export declare class Parallax {
      */
     private createParallax;
     /**
-     * Update options
+     * Update options based on element attributes
      */
     private updateOptions;
     /**
@@ -27,28 +27,18 @@ export declare class Parallax {
      */
     private setStyle;
     /**
-     * Wrap element
+     * Wrap the element by adding a wrapper container
      */
     private wrapElement;
     /**
-     * Check visible
+     * Check visibility of the element
      */
     private checkVisible;
     /**
-     * Create Observer
+     * Create IntersectionObserver
      */
     private createObserver;
-    /**
-     * Observer callback
-     */
-    private handleIntersect;
-    /**
-     * OnEnter
-     */
     private onEnter;
-    /**
-     * OnLeave
-     */
     private onLeave;
     /**
      * Calculating the value of parallax
@@ -59,9 +49,9 @@ export declare class Parallax {
      */
     private calcDamp;
     /**
-     * Set the parallax value to element
+     * Apply parallax transformation to the element
      */
-    private transformParallax;
+    private applyParallax;
     /**
      * Animate parallax
      */

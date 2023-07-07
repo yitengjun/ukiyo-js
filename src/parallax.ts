@@ -64,19 +64,25 @@ export class Parallax {
   }
 
   /**
-   * Update options
+   * Update options based on element attributes
    */
   private updateOptions(): void {
-    const elementOptionScale = this.element.getAttribute('data-u-scale');
-    const elementOptionSpeed = this.element.getAttribute('data-u-speed');
-    const elementOptionWillChange =
+    const scaleAttributeValue = this.element.getAttribute('data-u-scale');
+    const speedAttributeValue = this.element.getAttribute('data-u-speed');
+    const willChangeAttributeValue =
       this.element.getAttribute('data-u-willchange');
 
-    if (elementOptionScale !== null)
-      this.options.scale = Number(elementOptionScale);
-    if (elementOptionSpeed !== null)
-      this.options.speed = Number(elementOptionSpeed);
-    if (elementOptionWillChange !== null) this.options.willChange = true;
+    if (scaleAttributeValue !== null) {
+      this.options.scale = Number(scaleAttributeValue);
+    }
+
+    if (speedAttributeValue !== null) {
+      this.options.speed = Number(speedAttributeValue);
+    }
+
+    if (willChangeAttributeValue !== null) {
+      this.options.willChange = true;
+    }
   }
 
   /**
@@ -206,13 +212,11 @@ export class Parallax {
   }
 
   /**
-   * Wrap element
+   * Wrap the element by adding a wrapper container
    */
   private wrapElement(): void {
-    const elementWrapperClass = this.element.getAttribute(
-      'data-u-wrapper-class',
-    );
-    const wrapperClass = elementWrapperClass || this.options.wrapperClass;
+    const dataWrapperClass = this.element.getAttribute('data-u-wrapper-class');
+    const wrapperClass = dataWrapperClass || this.options.wrapperClass;
 
     if (wrapperClass) {
       this.wrapper.classList.add(wrapperClass);
@@ -220,22 +224,19 @@ export class Parallax {
 
     const pictureElement = this.element.closest('picture');
 
-    if (pictureElement !== null) {
-      if (pictureElement.parentNode !== null) {
-        pictureElement.parentNode.insertBefore(this.wrapper, pictureElement);
-      }
-      this.wrapper.appendChild(pictureElement);
-    } else {
-      const parentElement = this.element.parentNode;
-      if (parentElement !== null) {
-        parentElement.insertBefore(this.wrapper, this.element);
-      }
-      this.wrapper.appendChild(this.element);
+    const targetElement =
+      pictureElement !== null ? pictureElement : this.element;
+
+    const parentElement = targetElement.parentNode;
+    if (parentElement !== null) {
+      parentElement.insertBefore(this.wrapper, targetElement);
     }
+
+    this.wrapper.appendChild(targetElement);
   }
 
   /**
-   * Check visible
+   * Check visibility of the element
    */
   private checkVisible(): void {
     const rect = this.wrapper.getBoundingClientRect();
@@ -249,52 +250,50 @@ export class Parallax {
   }
 
   /**
-   * Create Observer
+   * Create IntersectionObserver
    */
   private createObserver(): void {
-    const options = {
+    const options: IntersectionObserverInit = {
       root: null,
       rootMargin: '0px',
       threshold: 0,
     };
 
-    this.observer = new IntersectionObserver(
-      this.handleIntersect.bind(this),
-      options,
-    );
+    const intersectionCallback: IntersectionObserverCallback = (
+      entry: IntersectionObserverEntry[],
+    ) => {
+      if (entry[0].isIntersecting) {
+        this.onEnter();
+      } else {
+        this.onLeave();
+      }
+    };
+
+    this.observer = new IntersectionObserver(intersectionCallback, options);
     this.observer.observe(this.wrapper);
   }
 
-  /**
-   * Observer callback
-   */
-  private handleIntersect(entry: IntersectionObserverEntry[]): void {
-    if (entry[0].isIntersecting) {
-      this.onEnter();
-    } else {
-      this.onLeave();
-    }
-  }
-
-  /**
-   * OnEnter
-   */
   private onEnter(): void {
     const elementStyle = this.element.style;
-    if (this.options.willChange && elementStyle.willChange !== 'transform') {
-      elementStyle.willChange = 'transform';
+    const willChangeValue = 'transform';
+
+    if (
+      this.options.willChange &&
+      elementStyle.willChange !== willChangeValue
+    ) {
+      elementStyle.willChange = willChangeValue;
     }
     this.isVisible = true;
   }
 
-  /**
-   * OnLeave
-   */
   private onLeave(): void {
-    const elementStyle = this.element.style;
-    if (this.options.willChange && elementStyle.willChange === 'transform') {
-      elementStyle.willChange = '';
+    const { element, options } = this;
+    const { willChange } = options;
+
+    if (willChange && element.style.willChange === 'transform') {
+      element.style.willChange = '';
     }
+
     this.isVisible = false;
   }
 
@@ -302,21 +301,27 @@ export class Parallax {
    * Calculating the value of parallax
    */
   private calcTranslateValue(): number {
-    let pageYOffset = window.pageYOffset;
-    if (pageYOffset < 0) pageYOffset = 0;
+    let scrollYOffset = window.pageYOffset;
+    if (scrollYOffset < 0) {
+      scrollYOffset = 0;
+    }
 
-    const wrapperOffsetTop =
-      this.wrapper.getBoundingClientRect().top + pageYOffset;
-    const distance = pageYOffset + this.vh - wrapperOffsetTop;
-    const percentageDistance =
-      distance / ((this.vh + this.wrapperHeight!) / 100);
-    const percentage = Math.min(100, Math.max(0, percentageDistance)) / 100;
+    const wrapperTopOffset =
+      this.wrapper.getBoundingClientRect().top + scrollYOffset;
+    const scrollDistance = scrollYOffset + this.vh - wrapperTopOffset;
+    const scrollDistancePercentage =
+      scrollDistance / ((this.vh + this.wrapperHeight!) / 100);
+    const scrollPercentage =
+      Math.min(100, Math.max(0, scrollDistancePercentage)) / 100;
 
-    const speedDiff =
+    const speedDifference =
       (this.overflow! * this.options.speed! - this.overflow!) / 2;
     const translateValue =
-      this.overflow! * (1 - percentage) * this.options.speed! * this.damp -
-      speedDiff;
+      this.overflow! *
+      (1 - scrollPercentage) *
+      this.options.speed! *
+      this.damp -
+      speedDifference;
 
     return Number(translateValue.toFixed(4));
   }
@@ -363,9 +368,9 @@ export class Parallax {
   }
 
   /**
-   * Set the parallax value to element
+   * Apply parallax transformation to the element
    */
-  private transformParallax(): void {
+  private applyParallax(): void {
     this.element.style.transform = `translate3d(0 , ${this.calcTranslateValue()}px , 0)`;
   }
 
@@ -380,7 +385,7 @@ export class Parallax {
     if (window.pageYOffset < 0) return;
     if (!this.isVisible) return;
 
-    this.transformParallax();
+    this.applyParallax();
   }
 
   /**
@@ -439,7 +444,7 @@ export class Parallax {
     }
 
     this.setStyle();
-    this.transformParallax();
+    this.applyParallax();
   }
 
   /**
