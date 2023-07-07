@@ -1,4 +1,4 @@
-import type { UkiyoOptions, TElement } from '../types/index.ts';
+import type { UkiyoOptions, TElement } from './types.ts';
 export default class Ukiyo {
     private elements;
     private options?;
