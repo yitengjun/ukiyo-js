@@ -19,7 +19,7 @@
     "allowImportingTsExtensions": true,
     "noEmit": true,
   },
-  "include": ["src/**/*", "types/index.d.ts"],
+  "include": ["src/**/*", "src/types.ts"],
   "exclude": ["dist", "node_modules"],
   "compileOnSave": false,
 }
