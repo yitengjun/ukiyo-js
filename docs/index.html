@@ -1,93 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ukiyo.js Demo</title>
-  <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ukiyo.js Demo</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-</head>
-<body>
-  <div class="heading">
-    <h1>Ukiyo.js</h1>
-    <a href="https://github.com/yitengjun/ukiyojs" target="_blank">see on GitHub</a>
-  </div>
-  <div id="container">
-    <section class="fv">
-      <!-- option + scale + willchange -->
-      <img class="ukiyo fv_img1"  src="https://images.unsplash.com/photo-1606011334315-025e4baab810?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80" data-u-willchange decoding="async">
-    </section>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="heading">
+      <h1>Ukiyo.js</h1>
+      <a href="https://github.com/yitengjun/ukiyojs" target="_blank">see on GitHub</a>
+    </div>
+    <div id="container">
+      <section class="fv">
+        <!-- option + scale + willchange -->
+        <img
+          class="ukiyo fv_img1"
+          src="https://images.unsplash.com/photo-1606011334315-025e4baab810?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80"
+          data-u-willchange
+          decoding="async"
+        />
+      </section>
 
-    <section class="content">
-      <!-- option +speed -->
-      <img class="ukiyo img-size-1 img-position-l" data-u-speed="1.3" src="https://images.unsplash.com/photo-1647613049527-851295e24918?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80">
+      <section class="content">
+        <!-- option +speed -->
+        <img
+          class="ukiyo img-size-1 img-position-l"
+          data-u-speed="1.3"
+          src="https://images.unsplash.com/photo-1647613049527-851295e24918?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+        />
 
-      <!-- picture element -->
-      <picture>
-        <source srcset="https://images.unsplash.com/photo-1661961112835-ca6f5811d2af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" media="(min-width: 1000px)">
-        <source srcset="https://images.unsplash.com/photo-1647849754185-2b52aec8458b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" media="(min-width: 700px)">
-        <img class="ukiyo img-size-full" src="https://images.unsplash.com/photo-1504051771394-dd2e66b2e08f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80">
-      </picture>
+        <!-- picture element -->
+        <picture>
+          <source
+            srcset="
+              https://images.unsplash.com/photo-1661961112835-ca6f5811d2af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80
+            "
+            media="(min-width: 1000px)"
+          />
+          <source
+            srcset="
+              https://images.unsplash.com/photo-1647849754185-2b52aec8458b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80
+            "
+            media="(min-width: 700px)"
+          />
+          <img
+            class="ukiyo img-size-full"
+            src="https://images.unsplash.com/photo-1504051771394-dd2e66b2e08f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+          />
+        </picture>
 
-      <!-- use background-image -->
-      <div class="ukiyo img-position-r img-size-2 bg"></div>
+        <!-- use background-image -->
+        <div class="ukiyo img-position-r img-size-2 bg"></div>
 
-      <img class="ukiyo img-size-1 img-position-l" src="https://images.unsplash.com/photo-1663094615740-322d2a238949?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80">
+        <img
+          class="ukiyo img-size-1 img-position-l"
+          src="https://images.unsplash.com/photo-1663094615740-322d2a238949?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+        />
 
-      <img class="ukiyo img-size-full" src="https://images.unsplash.com/photo-1516575150278-77136aed6920?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80">
+        <img
+          class="ukiyo img-size-full"
+          src="https://images.unsplash.com/photo-1516575150278-77136aed6920?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+        />
 
-      <img class="ukiyo img-size-1 img-position-r" src="https://images.unsplash.com/photo-1516575150278-77136aed6920?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80">
+        <img
+          class="ukiyo img-size-1 img-position-r"
+          src="https://images.unsplash.com/photo-1516575150278-77136aed6920?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+        />
 
-      <img class="ukiyo img-position-l img-size-2" src="https://images.unsplash.com/photo-1638395976479-edd103e980bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80">
+        <img
+          class="ukiyo img-position-l img-size-2"
+          src="https://images.unsplash.com/photo-1638395976479-edd103e980bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+        />
 
-      <img class="ukiyo img-position-r img-size-2" src="https://images.unsplash.com/photo-1647635423038-5ba662f9da6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80">
+        <img
+          class="ukiyo img-position-r img-size-2"
+          src="https://images.unsplash.com/photo-1647635423038-5ba662f9da6e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+        />
 
-      <img class="ukiyo img-size-full" data-u-scale="1.25" src="https://images.unsplash.com/photo-1647627573078-d8f5b48ab85a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80">
+        <img
+          class="ukiyo img-size-full"
+          data-u-scale="1.25"
+          src="https://images.unsplash.com/photo-1647627573078-d8f5b48ab85a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+        />
 
-      <img class="ukiyo img-size-1 img-position-l" data-u-scale="1.35" src="https://images.unsplash.com/photo-1604882355165-4450cb6155b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80">
+        <img
+          class="ukiyo img-size-1 img-position-l"
+          data-u-scale="1.35"
+          src="https://images.unsplash.com/photo-1604882355165-4450cb6155b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+        />
 
-      <img class="ukiyo img-position-r img-size-2" src="https://images.unsplash.com/photo-1561948955-570b270e7c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80">
-    </section>
+        <img
+          class="ukiyo img-position-r img-size-2"
+          src="https://images.unsplash.com/photo-1561948955-570b270e7c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+        />
+      </section>
 
-    <footer>
-      <div>
-        <p>Smooth Scroll : <a href="https://github.com/studio-freight/lenis" target="blank">@studio-freight/lenis</a></p>
-        <p>Image : <a href="https://unsplash.com/" target="blank">Unsplash</a></p>
-      </div>
-    </footer>
-  </div>
+      <footer>
+        <div>
+          <p>
+            Smooth Scroll :
+            <a href="https://github.com/studio-freight/lenis" target="blank"
+              >@studio-freight/lenis</a
+            >
+          </p>
+          <p>Image : <a href="https://unsplash.com/" target="blank">Unsplash</a></p>
+        </div>
+      </footer>
+    </div>
 
-  <!-- <script src="../dist/ukiyo.umd.min.js"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/ukiyojs@4.0.9/dist/ukiyo.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@latest/bundled/lenis.js"></script>
-  <script>
-    /**
-     * Ukiyo.js
-     */
-    const parallax = new Ukiyo(".ukiyo", {
-      externalRAF: true
-    });
+    <!-- <script src="../dist/ukiyo.umd.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/ukiyojs@4.0.9/dist/ukiyo.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@latest/bundled/lenis.js"></script>
+    <script>
+      /**
+       * Ukiyo.js
+       */
+      const parallax = new Ukiyo('.ukiyo', {
+        externalRAF: true,
+      });
 
-    const lenis = new Lenis({
-      duration: 0.75,
-      smoothWheel: true,
-      smoothTouch: false,
-      normalizeWheel: true,
-    });
+      /**
+       * smooth scroll
+       */
+      const lenis = new Lenis({
+        duration: 0.75,
+        smoothWheel: true,
+        smoothTouch: false,
+        normalizeWheel: true,
+      });
 
-    function raf(time) {
-      parallax.animate();
+      /**
+       * animate
+       */
+      function raf(time) {
+        parallax.animate();
 
-      lenis.raf(time);
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
       requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-  </script>
-</body>
+    </script>
+  </body>
 </html>

@@ -64,13 +64,13 @@ img {
   font-size: 0.889rem;
   text-transform: capitalize;
   text-decoration: none;
-  padding: .555em 1.5em;
+  padding: 0.555em 1.5em;
   display: block;
-  margin-top: .5em;
+  margin-top: 0.5em;
   border-radius: 2.5em;
   background-color: #fff;
   color: #1f1f1f;
-  transition: .25s transform;
+  transition: 0.25s transform;
 }
 
 .heading a:hover {
