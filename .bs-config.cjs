@@ -5,7 +5,7 @@ module.exports = {
   ui: false,
   server: {
     routes: {
-      '/': 'example',
+      '/': 'tests/src',
     },
   },
   notify: false,

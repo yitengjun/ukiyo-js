@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ukiyo.js Demo</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="demo-content">
+      <!--img element-->
+      <h2>img element</h2>
+      <img
+        class="ukiyo"
+        src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+      />
+
+      <!--div + background-image-->
+      <h2>background-image</h2>
+      <div class="ukiyo bg"></div>
+
+      <!--picture element-->
+      <h2>picture element</h2>
+      <picture>
+        <source
+          srcset="
+            https://images.unsplash.com/photo-1661961112835-ca6f5811d2af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=500&q=80
+          "
+          media="(min-width: 1000px)"
+        />
+        <source
+          srcset="
+            https://images.unsplash.com/photo-1647849754185-2b52aec8458b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=500&q=80
+          "
+          media="(min-width: 700px)"
+        />
+        <img
+          class="ukiyo"
+          src="https://images.unsplash.com/photo-1504051771394-dd2e66b2e08f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=500&q=80"
+        />
+      </picture>
+
+      <!--video element-->
+      <h2>video element</h2>
+      <video class="ukiyo" autoplay muted loop playsinline poster="">
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+        <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg" />
+        Your browser does not support HTML5 video.
+      </video>
+
+      <!--(option) data-u-scale scale:2-->
+      <h2>(option) data-u-scale scale: 1.7</h2>
+      <img
+        class="ukiyo"
+        data-u-scale="1.7"
+        src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+      />
+
+      <!--(option) data-u-speed speed:0.7-->
+      <h2>(option) data-u-speed speed: 0.7</h2>
+      <img
+        class="ukiyo"
+        data-u-speed="0.7"
+        src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+      />
+
+      <!--(option) data-u-speed speed:0.7-->
+      <h2>(option) data-u-willchange</h2>
+      <img
+        class="ukiyo"
+        data-u-willchange
+        src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+      />
+
+      <h2>(option) data-u-wrapper="customName"</h2>
+      <img
+        class="ukiyo"
+        data-u-wrapper-class="customName"
+        src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+      />
+
+      <!--with border-radius-->
+      <h2>(style) with border-radius</h2>
+      <img
+        class="ukiyo border-radius"
+        src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+      />
+
+      <!--[style]margin: 0 auto-->
+      <h2>(style) with margin: auto</h2>
+      <img
+        class="ukiyo margin-auto"
+        src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+      />
+
+      <h2>(style) with margin-left: auto</h2>
+      <img
+        class="ukiyo margin-left-auto"
+        src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+      />
+
+      <!--[style]position: absolute-->
+      <h2>(style) with position: absolute</h2>
+      <div class="absolute-wrapper">
+        <img
+          class="ukiyo absolute"
+          src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+        />
+      </div>
+
+      <!--[style]position: absolute-->
+      <h2>(style) with position: absolute + transform: translate(-50%, -50%)</h2>
+      <div class="absolute-wrapper">
+        <img
+          class="ukiyo absoluteTransformCenter"
+          src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+        />
+      </div>
+
+      <!--[style] CSS Grid-->
+      <h2>(style) with CSS Grid</h2>
+      <ul class="grid-wrapper">
+        <li>
+          <img
+            class="ukiyo"
+            src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+          />
+        </li>
+        <li>
+          <img
+            class="ukiyo"
+            src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+          />
+        </li>
+        <li>
+          <img
+            class="ukiyo"
+            src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+          />
+        </li>
+        <li>
+          <img
+            class="ukiyo"
+            src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+          />
+        </li>
+        <li>
+          <img
+            class="ukiyo"
+            src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+          />
+        </li>
+        <li>
+          <img
+            class="ukiyo"
+            src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+          />
+        </li>
+        <li>
+          <img
+            class="ukiyo"
+            src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+          />
+        </li>
+        <li>
+          <img
+            class="ukiyo"
+            src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+          />
+        </li>
+        <li>
+          <img
+            class="ukiyo"
+            src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+          />
+        </li>
+        <li>
+          <img
+            class="ukiyo"
+            src="https://images.unsplash.com/photo-1670808951552-9d804d0033ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
+          />
+        </li>
+      </ul>
+    </div>
+
+    <div class="buttons">
+      <button class="button--reset" type="button">reset</button>
+      <button class="button--destroy" type="button">destroy</button>
+    </div>
+
+    <script src="../dist/ukiyo.umd.min.js"></script>
+    <script>
+      const parallax = new Ukiyo('.ukiyo');
+
+      const resetButton = document.querySelector('.button--reset');
+      const destroyButton = document.querySelector('.button--destroy');
+
+      resetButton.addEventListener('click', (event) => {
+        parallax.reset();
+      });
+      destroyButton.addEventListener('click', (event) => {
+        parallax.destroy();
+      });
+    </script>
+  </body>
+</html>

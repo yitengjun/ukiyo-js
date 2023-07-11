@@ -98,10 +98,10 @@ video {
   height: 100%;
 }
 
-.grid-wrapper>li:nth-child(2),
-.grid-wrapper>li:nth-child(4),
-.grid-wrapper>li:nth-child(5),
-.grid-wrapper>li:nth-child(8) {
+.grid-wrapper > li:nth-child(2),
+.grid-wrapper > li:nth-child(4),
+.grid-wrapper > li:nth-child(5),
+.grid-wrapper > li:nth-child(8) {
   grid-column-end: span 2;
 }
 

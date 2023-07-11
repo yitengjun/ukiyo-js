@@ -1,12 +1,12 @@
 import type { UkiyoOptions, TElement } from './types.ts';
 export default class Ukiyo {
-    private elements;
-    private options?;
+    readonly elements: HTMLElement[];
+    readonly options?: UkiyoOptions;
     private instances;
-    private externalRAF;
+    readonly externalRAF: boolean;
     private requestId?;
     private timer?;
-    private onResizeEvent;
+    readonly onResizeEvent: EventListenerOrEventListenerObject;
     private isInit;
     constructor(elements: TElement | null, options?: UkiyoOptions);
     /**

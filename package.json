@@ -35,10 +35,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "rollup -c -w",
-    "build": "rollup -c",
-    "lint": "eslint  \"./src/**/*.ts\" --fix",
-    "format": "prettier --write \"./src/**/*.ts\" \"./{*.cjs,*.ts,*.js,*.json}\"",
     "serve": "browser-sync start --config \"./.bs-config.cjs\"",
+    "test": "vitest",
+    "format": "prettier --write \"./src/**/*.ts\" \"./{*.cjs,*.ts,*.js,*.json}\" \"./tests/**/*.ts\" \"./docs/**/{*.html,*.css}\" \"./tests/src/**/{*.html,*.css}\"",
+    "lint": "eslint  \"./src/**/*.ts\" --fix",
+    "build": "rollup -c",
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
@@ -55,11 +56,13 @@
     "browser-sync": "^2.27.10",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.5.0",
+    "happy-dom": "^10.0.3",
     "prettier": "^2.8.8",
     "rollup": "^2.79.1",
     "semantic-release": "^18.0.1",
     "tslib": "^2.4.1",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "vitest": "^0.33.0"
   },
   "release": {
     "branches": [
