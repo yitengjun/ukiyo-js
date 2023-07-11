@@ -3,19 +3,19 @@ import { Parallax } from './parallax.ts';
 import type { UkiyoOptions, TElement } from './types.ts';
 
 export default class Ukiyo {
-  private elements: HTMLElement[] = [];
+  readonly elements: HTMLElement[] = [];
 
-  private options?: UkiyoOptions;
+  readonly options?: UkiyoOptions;
 
   private instances: Parallax[];
 
-  private externalRAF: boolean;
+  readonly externalRAF: boolean;
 
   private requestId?: number;
 
   private timer?: number;
 
-  private onResizeEvent: EventListenerOrEventListenerObject;
+  readonly onResizeEvent: EventListenerOrEventListenerObject;
 
   private isInit: boolean;
 
@@ -51,6 +51,7 @@ export default class Ukiyo {
     if (!this.externalRAF) {
       this.animate();
     }
+
     this.addEventListeners();
 
     this.isInit = true;

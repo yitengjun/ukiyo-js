@@ -3,7 +3,7 @@ import type { UkiyoOptions } from './types.ts';
  * Parallax class
  */
 export declare class Parallax {
-    private options;
+    readonly options: UkiyoOptions;
     private element;
     private wrapper;
     private overflow?;

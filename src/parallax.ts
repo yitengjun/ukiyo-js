@@ -6,7 +6,7 @@ import { defaults } from './options.ts';
  * Parallax class
  */
 export class Parallax {
-  private options: UkiyoOptions;
+  readonly options: UkiyoOptions;
 
   private element: HTMLElement;
 
@@ -214,10 +214,9 @@ export class Parallax {
     }
 
     const pictureElement = this.element.closest('picture');
-
     const targetElement = pictureElement !== null ? pictureElement : this.element;
-
     const parentElement = targetElement.parentNode;
+
     if (parentElement !== null) {
       parentElement.insertBefore(this.wrapper, targetElement);
     }
