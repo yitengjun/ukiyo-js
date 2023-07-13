@@ -18,7 +18,7 @@ export default {
   output: [
     {
       name: 'Ukiyo',
-      file: pkg.browser,
+      file: './dist/ukiyo.umd.min.js',
       format: 'umd',
       sourcemap: false,
     },

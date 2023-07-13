@@ -14,13 +14,13 @@
   "main": "./dist/ukiyo.esm.min.js",
   "umd:main": "./dist/ukiyo.umd.min.js",
   "module": "./dist/ukiyo.esm.min.js",
-  "browser": "./dist/ukiyo.umd.min.js",
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
       "import": "./dist/ukiyo.esm.min.js",
-      "default": "./dist/ukiyo.umd.min.js"
+      "umd": "./dist/ukiyo.umd.min.js",
+      "default": "./dist/ukiyo.esm.min.js"
     }
   },
   "keywords": [
