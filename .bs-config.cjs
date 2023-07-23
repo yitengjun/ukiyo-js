@@ -5,7 +5,8 @@ module.exports = {
   ui: false,
   server: {
     routes: {
-      '/': 'tests/src',
+      '/': 'tests/demo',
+      '/docs': 'docs',
     },
   },
   notify: false,
