@@ -17,10 +17,10 @@
 </div>
 
 ## Features
-- 🏞️ Background parallax for ```<img>```, ```<picture>```, ```<video>``` and ```background-image```
-- 🚀 Efficient and dynamic animations
-- 📚 No dependencies
-- 📝 TypeScript support
+- [x] 🏞️ Background parallax for ```<img>```, ```<picture>```, ```<video>``` and ```background-image```
+- [x] 🚀 Efficient and dynamic animations
+- [x] 📚 No dependencies
+- [x] 📝 TypeScript support
 
 ## 📥 Installation
 Install ```ukiyojs``` using your package manager of choice.
@@ -52,14 +52,14 @@ Give the elements cool names like *ukiyo* to call them in scripts for parallax e
 ```html
 <img class="ukiyo" src="image.jpg">
 ```
-- #### ```<picture>``` 🏞🌅🌄
+- #### ```<picture>``` 🏞🌅
 ```html
 <picture>
   <source srcset="~">
   <img class="ukiyo" src="image.jpg">
 <picture>
 ```
-If you are using ```picture``` element, give a name to ```img``` element inside ```picture``` element.
+> If you are using ```picture``` element, give a name to ```img``` element inside ```picture``` element.
 - #### ```<video>``` 🎬
 ```html
 <video class="ukiyo" src="~" type="~">
@@ -69,6 +69,8 @@ If you are using ```picture``` element, give a name to ```img``` element inside 
 <div class="ukiyo"></div>
 ```
 > Don't forget to style the ```background-image``` of the element.
+
+---
 
 ### JavaScript
 Instantiate Ukiyo with the cool name you gave to the element as the first argument. The element selection supports the following types:
@@ -109,6 +111,8 @@ new Ukiyo(parallax, {
 })
 ```
 
+---
+
 ### Element Options
 Additionally, you can individually set these options for elements using the ```data-u-*``` attribute, like this:
 ```html
@@ -124,14 +128,15 @@ Additionally, you can individually set these options for elements using the ```d
 | ```data-u-scale``` | ```number``` | ```scale``` option. |
 | ```data-u-speed``` | ```number``` | ```speed``` option. |
 | ```data-u-willchange``` |  | ```willChange``` option. Just add this to the element to enable it. |
-| ```data-u-wrapper-class``` | string | ```wrapperClass``` option. |
+| ```data-u-wrapper-class``` | ```string``` | ```wrapperClass``` option. |
 |  |  |  |
 
 > Option names start with ```data-u-*```. Don't forget to prefix the option name with a ```u```, if *u* do.
 
+---
+
 ### 🚀 Using external requestAnimationFrame
 By default, parallax animation is automatically rendered using the library's ```requestAnimationFrame```, but you can use an external ```requestAnimationFrame``` to run the animation.
-
 
 ```javascript
 const parallax = new Ukiyo(".ukiyo", {
