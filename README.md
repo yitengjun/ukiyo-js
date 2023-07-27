@@ -16,13 +16,15 @@
   </p>
 </div>
 
-## Features
+## ⛰️ Features
 - 🏞️ Background parallax for ```<img>```, ```<picture>```, ```<video>``` and ```background-image```
 - 🚀 Efficient and dynamic animations
 - 📚 No dependencies
 - 📝 TypeScript support
 
-## 📥 Installation
+<br />
+
+## 📦 Installation
 Install ```ukiyojs``` using your package manager of choice.
 ```sh
 # npm
@@ -39,32 +41,38 @@ Import Ukiyo:
 ```javascript
 import Ukiyo from "ukiyojs";
 ```
-
+---
 or import via CDN:
 ```html
 <script src="https://cdn.jsdelivr.net/npm/ukiyojs@4.1.1/dist/ukiyo.min.js"></script>
 ```
 
+<br />
+
 ## 🕹️ Usage
 ### HTML
 Give the elements cool names like *ukiyo* to call them in scripts for parallax effects.
+
 - #### 🏞 ```<img>```
 ```html
 <img class="ukiyo" src="image.jpg">
 ```
-- #### 🏞🌅 ```<picture>```
+
+- 🌅 __```<picture>```__
 ```html
 <picture>
   <source srcset="~">
+  <!-- give a name to img element inside picture element. -->
   <img class="ukiyo" src="image.jpg">
 <picture>
 ```
-> If you are using ```picture``` element, give a name to ```img``` element inside ```picture``` element.
-- #### 🎬 ```<video>```
+
+- 🎬 __```<video>```__
 ```html
 <video class="ukiyo" src="~" type="~">
 ```
-- #### 🖼️ CSS```background-image```
+
+- 🖼️ CSS __```background-image```__
 ```html
 <div class="ukiyo"></div>
 ```
@@ -87,6 +95,8 @@ const images = document.getElementsByClassName('ukiyo');
 new simpleParallax(images);
 ```
 There you go, all set! Now let's see it in action.
+
+<br />
 
 ## ⚙️ Options
 
@@ -154,6 +164,8 @@ requestAnimationFrame(raf)
 ```
 Enable the ```externalRAF``` option, and then call the ```animate()``` method within your custom ```requestAnimationFrame``` to trigger the parallax animation.
 
+<br />
+
 ## 🀄️ Methods
 - #### ```reset()```
 To reset the instance and recalculate the size and position of the elements, use the following code:
@@ -172,6 +184,8 @@ const instance = new Ukiyo(".image")
 instance.destroy()
 ```
 
+<br />
+
 ## 📍Notes
 <details>
 <summary>🚧 When using Lenis in combination</summary>
@@ -181,6 +195,7 @@ instance.destroy()
   - https://github.com/studio-freight/lenis/issues/187
 </details>
 
+<br />
 
 ## 🖥️ Browser Support
 | IE         | Edge   | Firefox | Chrome | Opera  | Safari | iOS Safari | 
@@ -189,10 +204,14 @@ instance.destroy()
 
 > Parallax animations are automatically disabled in browsers that do not support them.
 
+<br />
+
 ## 🏕️ Examples
 How is Ukiyo being used? 👀
 
 [UKIYO](https://ukiyo-js.dev) - from [@yitengjun](https://github.com/yitengjun)
+
+<br />
 
 ## License
 [MIT License](https://github.com/yitengjun/ukiyojs/blob/main/LICENSE)
