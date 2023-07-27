@@ -48,11 +48,11 @@ or import via CDN:
 ## 🕹️ Usage
 ### HTML
 Give the elements cool names like *ukiyo* to call them in scripts for parallax effects.
-- #### ```<img>``` 🏞
+- #### 🏞 ```<img>```
 ```html
 <img class="ukiyo" src="image.jpg">
 ```
-- #### ```<picture>``` 🏞🌅
+- #### 🏞🌅 ```<picture>```
 ```html
 <picture>
   <source srcset="~">
@@ -60,11 +60,11 @@ Give the elements cool names like *ukiyo* to call them in scripts for parallax e
 <picture>
 ```
 > If you are using ```picture``` element, give a name to ```img``` element inside ```picture``` element.
-- #### ```<video>``` 🎬
+- #### 🎬 ```<video>```
 ```html
 <video class="ukiyo" src="~" type="~">
 ```
-- #### CSS```background-image``` 🖼️
+- #### 🖼️ CSS```background-image```
 ```html
 <div class="ukiyo"></div>
 ```
