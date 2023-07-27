@@ -17,10 +17,10 @@
 </div>
 
 ## Features
-- [x] 🏞️ Background parallax for ```<img>```, ```<picture>```, ```<video>``` and ```background-image```
-- [x] 🚀 Efficient and dynamic animations
-- [x] 📚 No dependencies
-- [x] 📝 TypeScript support
+- 🏞️ Background parallax for ```<img>```, ```<picture>```, ```<video>``` and ```background-image```
+- 🚀 Efficient and dynamic animations
+- 📚 No dependencies
+- 📝 TypeScript support
 
 ## 📥 Installation
 Install ```ukiyojs``` using your package manager of choice.
