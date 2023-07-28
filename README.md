@@ -97,7 +97,8 @@ There you go, all set! Now let's see it in action.
 
 <br />
 
-## ⚙️ Instance Options
+## ⚙️ Options
+### Instance Options
 ```javascript
 const parallax = document.querySelector('.image')
 
@@ -210,5 +211,5 @@ How is Ukiyo being used? 👀
 
 <br />
 
-## License
+## 📃 License
 [MIT License](https://github.com/yitengjun/ukiyojs/blob/main/LICENSE)
