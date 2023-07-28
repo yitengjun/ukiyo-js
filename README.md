@@ -76,7 +76,6 @@ Give the elements cool names like *ukiyo* to call them in scripts for parallax e
 ```html
 <div class="ukiyo"></div>
 ```
-> Don't forget to style the ```background-image``` of the element.
 
 ---
 
@@ -98,17 +97,7 @@ There you go, all set! Now let's see it in action.
 
 <br />
 
-## ⚙️ Options
-
-| Option | Type | Default | Description | 
-| - | - | - | - |
-| ```scale``` | ```number``` | ```1.5``` | Parallax image scaling factor. | 
-| ```speed``` | ```number```  | ```1.5``` | Parallax speed. | 
-| ```willChange``` | ```boolean``` | ```false``` | When true is specified, the elements will receive will-change: transform when Parallax is active. | 
-| ```wrapperClass``` | ```string```  | ```null``` | Set any class name to the automatically generated wrapper element. | 
-| ```externalRAF``` | ```boolean```  | ```false``` | Set it to true if you want to use an external requestAnimationFrame. | 
-
-Set the options during instantiation as follows:
+## ⚙️ Instance Options
 ```javascript
 const parallax = document.querySelector('.image')
 
@@ -121,9 +110,17 @@ new Ukiyo(parallax, {
 })
 ```
 
+| Option | Type | Default | Description | 
+| - | - | - | - |
+| ```scale``` | ```number``` | ```1.5``` | Parallax image scaling factor. | 
+| ```speed``` | ```number```  | ```1.5``` | Parallax speed. | 
+| ```willChange``` | ```boolean``` | ```false``` | When true is specified, the elements will receive will-change: transform when Parallax is active. | 
+| ```wrapperClass``` | ```string```  | ```null``` | Set any class name to the automatically generated wrapper element. | 
+| ```externalRAF``` | ```boolean```  | ```false``` | Set it to true if you want to use an external requestAnimationFrame. | 
+
 ---
 
-### Element Options
+### Element attributes
 Additionally, you can individually set these options for elements using the ```data-u-*``` attribute, like this:
 ```html
 <img
