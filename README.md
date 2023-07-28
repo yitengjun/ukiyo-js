@@ -91,7 +91,7 @@ new Ukiyo(images)
 
 // or HTMLCollection
 const images = document.getElementsByClassName('ukiyo');
-new simpleParallax(images);
+new Ukiyo(images);
 ```
 There you go, all set! Now let's see it in action.
 
