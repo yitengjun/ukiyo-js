@@ -4,7 +4,7 @@
     <br>
     Ukiyo.js
   </h1>
-  <p>Modern parallax library for picture elements and any images</p>
+  <p>Dynamic, modern, and efficient background parallax effect.</p>
   <p>
     <img src="https://img.shields.io/bundlephobia/minzip/ukiyojs">
     <img src="https://img.shields.io/github/license/yitengjun/ukiyojs">
