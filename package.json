@@ -37,7 +37,7 @@
     "dev": "rollup -c -w",
     "serve": "browser-sync start --config \"./.bs-config.cjs\"",
     "test": "vitest",
-    "format": "prettier --write \"./src/**/*.ts\" \"./{*.cjs,*.ts,*.js,*.json}\" \"./tests/**/*.ts\" \"./docs/**/{*.html,*.css}\" \"./tests/src/**/{*.html,*.css}\"",
+    "format": "prettier --write \"./src/**/*.ts\" \"./{*.cjs,*.ts,*.js,*.json}\" \"./tests/**/*.ts\" \"./docs/**/{*.html,*.css}\" \"./tests/demo/**/{*.html,*.css}\"",
     "lint": "eslint  \"./src/**/*.ts\" --fix",
     "build": "rollup -c",
     "semantic-release": "semantic-release"
