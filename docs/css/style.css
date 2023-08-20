@@ -94,6 +94,8 @@ img {
 
 .ukiyo {
   margin-top: 12.5em;
+  /* First aid for a bug that interferes with lenis scrolling and parallax scrolling on safari. */
+  /* https://github.com/yitengjun/ukiyo-js#notes */
   pointer-events: none;
 }
 
