@@ -10,6 +10,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
+  "ignorePatterns": ["dist/"],
   "rules": {
     "@typescript-eslint/naming-convention": [
       "error",

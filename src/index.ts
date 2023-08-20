@@ -3,10 +3,6 @@ import { Parallax } from './parallax.ts';
 import type { UkiyoOptions, TElement } from './types.ts';
 
 export default class Ukiyo {
-  readonly elements: HTMLElement[] = [];
-
-  readonly options?: UkiyoOptions;
-
   private instances: Parallax[];
 
   readonly externalRAF: boolean;
@@ -17,44 +13,37 @@ export default class Ukiyo {
 
   readonly onResizeEvent: EventListenerOrEventListenerObject;
 
-  private isInit: boolean;
-
   constructor(elements: TElement | null, options?: UkiyoOptions) {
     if (!elements) {
       throw new Error(`Argument 'elements' cannot be null.`);
     }
 
-    this.elements = getElements(elements);
-    this.options = options;
-
     this.instances = [];
-    this.externalRAF = (this.options && this.options.externalRAF) || false;
+    this.externalRAF = (options && options.externalRAF) || false;
     this.onResizeEvent = this.resize.bind(this);
-    this.isInit = false;
 
-    if (!isSupportedBrowser()) return;
-
-    this.init();
+    if (isSupportedBrowser()) {
+      this.init(getElements(elements), options);
+    }
   }
 
   /**
    * Initializes
    */
-  private init(): void {
-    if (this.isInit) return;
-
+  private init(elements: HTMLElement[], options?: UkiyoOptions): void {
     // Create parallax
-    this.instances = this.elements.map(
-      (element: HTMLElement) => new Parallax(element, this.options),
-    );
+    this.instances = elements.map((element: HTMLElement) => new Parallax(element, options));
 
     if (!this.externalRAF) {
       this.animate();
     }
 
-    this.addEventListeners();
-
-    this.isInit = true;
+    // Add event listeners
+    if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/)) {
+      window.addEventListener('orientationchange', this.onResizeEvent);
+    } else {
+      window.addEventListener('resize', this.onResizeEvent);
+    }
   }
 
   /**
@@ -67,15 +56,6 @@ export default class Ukiyo {
 
     if (!this.externalRAF) {
       this.requestId = window.requestAnimationFrame(this.animate.bind(this));
-    }
-  }
-
-  /**
-   * Cancel animation
-   */
-  private cancel(): void {
-    if (this.requestId) {
-      window.cancelAnimationFrame(this.requestId);
     }
   }
 
@@ -99,21 +79,12 @@ export default class Ukiyo {
   }
 
   /**
-   * Add event listeners
-   */
-  private addEventListeners(): void {
-    if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/)) {
-      window.addEventListener('orientationchange', this.onResizeEvent);
-    } else {
-      window.addEventListener('resize', this.onResizeEvent);
-    }
-  }
-
-  /**
    * Destroy all instances
    */
   public destroy(): void {
-    this.cancel();
+    if (this.requestId) {
+      window.cancelAnimationFrame(this.requestId);
+    }
 
     window.removeEventListener('resize', this.onResizeEvent);
     window.removeEventListener('orientationchange', this.onResizeEvent);
@@ -121,7 +92,5 @@ export default class Ukiyo {
     this.instances.forEach((instance) => {
       instance.destroy();
     });
-
-    this.isInit = false;
   }
 }

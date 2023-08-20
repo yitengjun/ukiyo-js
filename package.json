@@ -1,7 +1,7 @@
 {
   "name": "ukiyojs",
   "version": "4.1.1",
-  "description": "Modern parallax library for picture elements and any images",
+  "description": "⛰️ Dynamic, modern, and efficient background parallax effect.",
   "homepage": "https://yitengjun.github.io/ukiyo-js/",
   "repository": {
     "type": "git",
@@ -24,12 +24,12 @@
     }
   },
   "keywords": [
-    "javascript",
     "parallax",
     "scroll",
     "background-image",
-    "background",
-    "parallax-scrolling"
+    "effects",
+    "parallax-scrolling",
+    "background-parallax"
   ],
   "author": "Yiteng Jun <yiteng.work@gmail.com>",
   "license": "MIT",

@@ -37,10 +37,10 @@ export class Parallax {
     this.isVisible = false;
     this.damp = this.calcDamp(document.documentElement.clientWidth);
 
-    this.elementTagName = this.element.tagName.toLowerCase();
+    this.elementTagName = element.tagName.toLowerCase();
 
     if (this.elementTagName === 'img') {
-      const path: string | null = this.element.getAttribute('src');
+      const path: string | null = element.getAttribute('src');
 
       if (!path) return;
       isImageLoaded(path).then(() => {
@@ -94,9 +94,7 @@ export class Parallax {
     const isPositionAbsolute = style.position === 'absolute';
     const wrapperStyle = this.wrapper.style;
     const elementStyle = this.element.style;
-
-    // Difference between the height of the element and the wrapper
-    this.overflow = Math.floor((elementHeight - elementHeight * this.options.scale!) * 10) / 10;
+    const parallaxScale = this.options.scale!;
 
     // When using both margin: auto and position: absolute
     if (
@@ -197,9 +195,12 @@ export class Parallax {
     elementStyle.width = `${elementWidth}px`;
 
     wrapperStyle.setProperty('height', `${elementHeight}px`, 'important');
-    elementStyle.setProperty('height', `${elementHeight * this.options.scale!}px`, 'important');
+    elementStyle.setProperty('height', `${elementHeight * parallaxScale}px`, 'important');
 
     this.wrapperHeight = elementHeight;
+
+    // Difference between the height of the element and the wrapper
+    this.overflow = Math.floor((elementHeight - elementHeight * parallaxScale) * 10) / 10;
   }
 
   /**
@@ -296,10 +297,12 @@ export class Parallax {
     const scrollDistance = scrollYOffset + this.vh - wrapperTopOffset;
     const scrollDistancePercentage = scrollDistance / ((this.vh + this.wrapperHeight!) / 100);
     const scrollPercentage = Math.min(100, Math.max(0, scrollDistancePercentage)) / 100;
+    const overflow = this.overflow!;
+    const parallaxSpeed = this.options.speed!;
 
-    const speedDifference = (this.overflow! * this.options.speed! - this.overflow!) / 2;
+    const speedDifference = (overflow * parallaxSpeed - overflow) / 2;
     const translateValue =
-      this.overflow! * (1 - scrollPercentage) * this.options.speed! * this.damp - speedDifference;
+      overflow * (1 - scrollPercentage) * parallaxSpeed * this.damp - speedDifference;
 
     return Number(translateValue.toFixed(4));
   }
