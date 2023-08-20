@@ -44,7 +44,7 @@ import Ukiyo from "ukiyojs";
 ---
 or import via CDN:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/ukiyojs@4.1.1/dist/ukiyo.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ukiyojs@4.1.2/dist/ukiyo.min.js"></script>
 ```
 
 <br />
