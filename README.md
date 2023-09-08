@@ -164,7 +164,7 @@ Enable the ```externalRAF``` option, and then call the ```animate()``` method wi
 
 <br />
 
-## 🀄️ Methods
+## 🔧 Methods
 - #### ```reset()```
 To reset the instance and recalculate the size and position of the elements, use the following code:
 
