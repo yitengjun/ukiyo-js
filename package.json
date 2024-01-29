@@ -34,7 +34,6 @@
   "author": "Yiteng Jun <yiteng.work@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "dev": "rollup -c -w",
     "serve": "browser-sync start --config \"./.bs-config.cjs\"",
     "test": "vitest",
